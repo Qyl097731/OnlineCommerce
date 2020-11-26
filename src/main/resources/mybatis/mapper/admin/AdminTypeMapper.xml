@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qyl.dao.AdminTypeDao">
+    <select id="selectGoodsType" resultType="com.qyl.instance.GoodsType">
+        select * from tb_goodstype ;
+    </select>
+
+    <insert id="addType" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_goodstype(typename) values(#{typename})
+    </insert>
+
+
+<!--
+    ArrayList<Goods> selectGoodsByType(Integer id);
+
+    Integer deleteType(Integer id);
+-->
+    <select id="selectGoodsByType">
+        select * from tb_goods where goodstype_id = #{id}
+    </select>
+    <delete id="deleteType" parameterType="java.lang.Integer">
+        delete from tb_goodsType where id = #{id}
+    </delete>
+</mapper>

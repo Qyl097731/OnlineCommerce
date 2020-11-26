@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qyl.dao.UserDao">
+<!--
+    private Integer id;
+    private String bemail;
+    private String bpwd;
+-->
+    <insert id="register" parameterType="com.qyl.instance.Buser">
+        insert into tb_buser(id,bemail,bpwd) values(#{id},#{bemail},#{bpwd})
+    </insert>
+    <select id="login" parameterType="com.qyl.instance.Buser" resultType="com.qyl.instance.Buser">
+        select * from tb_buser where bemail = #{bemail} and bpwd = #{bpwd}
+    </select>
+    <select id="selectBuserByEmail" parameterType="com.qyl.instance.Buser" resultType="com.qyl.instance.Buser">
+        select * from tb_buser where bemail = #{bemail}
+    </select>
+</mapper>

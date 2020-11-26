@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qyl.dao.AdminOrderDao">
+    <!--      ArrayList<Map<String, Object>> orderInfo();
+
+        void deleteOrderDetail(Integer id);
+
+        void deleteOrderBase(Integer id);-->
+    <select id="orderInfo">
+        select tob.id , tob.amount,tob.status,orderdate,tb.email,tb.id
+        from tb_buser tb,tb_orderbase tob
+        where tb.id = tob.busertb2_tb;
+    </select>
+    <delete id="deleteOrderDetail">
+        delete from tb_orderdetail where orderbasetable_id = #{id}
+    </delete>
+    <delete id="deleteOrderBase">
+        delete from tb_orderbase where id = #{id}
+    </delete>
+</mapper>

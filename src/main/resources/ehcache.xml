@@ -1,0 +1,21 @@
+<ehcache>
+    <diskStore path="java.io.tmpdir"/>
+    <defaultCache
+            maxElementsInMemory="1000000"
+            maxElementsOnDisk="10000000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="true"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU"
+    />
+</ehcache>
+        <!--
+        maxElementsInMemory    在内存中缓存的element的最大数目
+        maxElementsOnDisk      在磁盘上缓存的element的最大数目,若是0则表示无穷大
+        eternal                设定缓存的elements是否永不过期,若为true则缓存的数据始终有效
+        timeToIdleSeconds      超过多少时间没用就自动清除数据
+        timeToLiveSeconds      最大缓存中存活多久
+        overflowToDisk         溢出的数据写到磁盘
+        -->

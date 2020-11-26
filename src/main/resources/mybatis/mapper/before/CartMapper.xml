@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qyl.dao.CartDao">
+<!--    关注商品   -->
+    <insert id="focus" parameterType="map">
+        insert into tb_focus(goodstable_id,busertable_id,focustime) values(#{gid},#{uid},now())
+    </insert>
+<!--    是否已经关注  -->
+    <select id="isFocus" parameterType="map" resultType="map">
+        select * from tb_focus where goodstable_id = #{gid} and busertable_id = #{uid}
+    </select>
+<!--
+    ArrayList<Map<String, Object>> isPutCart(Map<String, Object> map);
+
+    void updateCart(Map<String, Object> map);
+
+    void putCart(Map<String, Object> map);
+
+    ArrayList<Map<String,Object>> selectCart(Integer userId);
+
+    void deleteAgoods(Map<String, Object> map);
+
+    void clear(Integer userID);
+-->
+<!--    是否已加入购物车   -->
+    <select id="isPutCart" parameterType="map" resultType="map">
+        select * from tb_cart where goodstable_id = #{gid} and busertable_id = #{uid}
+    </select>
+<!--    添加购物车  -->
+    <insert id="putCart" parameterType="map">
+        insert into tb_cart(busertable_id,goodstable_id,shoppinggnum)
+        values (#{uid},#{gid},#{shoppingNum})
+    </insert>
+<!--    更新购物车   -->
+    <update id="updateCart" parameterType="map">
+        update tb_cart set shoppinggnum = shoppinggnum + #{shoppingNum}
+        where goodstable_id = #{gid} and busertable_id = #{uid}
+    </update>
+<!--     查询购物车  -->
+    <select id="selectCart" parameterType="Integer" resultType="map">
+        select goods.id,goods.gname,goods.gpicture,goods.grprice * cart.shoppinggnum smallSum from tb_cart cart , tb_goods goods
+        where goods.id = cart.goodstable_id and cart.busertable_id = #{uid};
+    </select>
+<!--    删除购物车   -->
+    <delete id="deleteAgoods"   parameterType="map">
+        delete from tb_cart  where busertable_id = #{uid} and goodstable_id = #{gid}
+    </delete>
+<!--    清空购物车   -->
+    <delete id="clear">
+        delete from tb_cart where busertable_id = #{uid}
+    </delete>
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qyl.dao.UserCenterDao">
+<!--    ArrayList<Map<String,Object>> myOrder(Integer uid);
+
+        ArrayList<Map<String,Object>> myFocus(Integer uid);
+
+        Map<String,Object> oderDetail(Integer orderSn);
+-->
+        <select id="myOrder" resultType="map" parameterType="Integer">
+            select * from tb_orderbase where busertable_id = #{uid}
+        </select>
+
+        <select id="myFocus" resultType="map" parameterType="Integer">
+            select * from tb_focus where busertable_id = #{uid}
+        </select>
+        <select id="oderDetail" resultType="map" parameterType="Integer">
+            select goods.*,detail.shoppingnum from tb_goods goods,tb_orderdetail detail
+            where detail.goodstable_id = goods.id and orderbasetable_id = #{orderSn}
+        </select>
+
+</mapper>

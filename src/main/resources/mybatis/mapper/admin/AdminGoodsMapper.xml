@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qyl.dao.AdminGoodsDao">
+    <!--Integer updateGoodsById(Goods goods);
+
+        Integer addGoods(Goods goods);
+        ArrayList<Goods> selectGoods();
+
+        Goods selectGoodsById(Integer id);
+    -->
+    <insert id="addGoods" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_goods(gname,goprice,grprice,gstore,gpicture,gtype_id)
+        values(#{gname},#{goprice},#{grprice},#{gstore},#{gpicture},#{gtypeId})
+    </insert>
+    <select id="selectGoods" resultType="com.qyl.instance.Goods">
+        select goods.*, goodstype.typename from tb_goods goods ,tb_goodstype goodstype
+        where goods.gtype_id = goodstype.id
+    </select>
+    <select id="selectGoodsById" parameterType="java.lang.Integer">
+        select goods.*, gtype.typename from tb_goodstype gtype,tb_goods goods
+        where gtype.id = goods.gtype_id and gtype.id = #{id}
+    </select>
+    <update id="updateGoodsById">
+        update tb_goods
+        <set>
+            <if test="gname!=null">
+                gname=#{gname}
+            </if>
+            <if test="goprice!=null">
+                goprice=#{goprice}
+            </if>
+            <if test="grprice!=null">
+                grprice=#{grprice}
+            </if>
+            <if test="gstore!=null">
+                gstore=#{gstore}
+            </if>
+            <if test="gpicture!=null">
+                gpicture=#{gpicture}
+            </if>
+            <if test="goodstype_id!=null">
+                gtype_id=#{goodstype_id}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+<!--
+    ArrayList<Goods> selectCartGoods(Integer id);
+
+    ArrayList<Goods> selectFocusGoods(Integer id);
+
+    ArrayList<Goods> selectOrderDetailGoods(Integer id);
+
+    void deleteGoods(ArrayList<Integer> list);
+
+    void deleteAGoods(Integer id);
+-->
+    <select id="selectCartGoods">
+        select * from tb_cart where goodstable_id=#{id}
+    </select>
+    <select id="selectFocusGoods">
+        select * from tb_focus where goodstable_id=#{id}
+    </select>
+    <select id="selectOrderDetailGoods">
+        select * from tb_ordetdetail where goodstable_id=#{id}
+    </select>
+
+    <delete id="deleteGoods" >
+        delete from tb_goods where id in
+        <foreach collection="list" item="id" index="index" open="(" separator="," close=")">
+        #{id}
+        </foreach>
+    </delete>
+    <delete id="deleteAGoods">
+        delete from tb_goods where id = #{id}
+    </delete>
+</mapper>
