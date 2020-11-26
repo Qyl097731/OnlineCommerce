@@ -19,10 +19,15 @@ import java.util.ArrayList;
  * packageName: com.qyl.service.admin
  * date: 2020-11-08 14:25
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 @Service
 public class AdminGoodsService {
     private final AdminGoodsDao adminGoodsDao;
+    private final String update = "update";
+    private final String deleteSelect = "deleteSelect";
+    private final String updateSelect = "updateSelect";
+    private final String updateAGoods = "updateAGoods";
 
     @Autowired
     public AdminGoodsService(AdminGoodsDao adminGoodsDao) {
@@ -50,7 +55,7 @@ public class AdminGoodsService {
                 e.printStackTrace();
             }
         }
-        if ("update".equals(updateAct)) {
+        if (update.equals(updateAct)) {
             //修改数据库
             if (adminGoodsDao.updateGoodsById(goods) > 0) {
                 return "forward:/adminGoods/selectGoods?act=updateSelect";
@@ -78,9 +83,9 @@ public class AdminGoodsService {
         model.addAttribute("allGoods", allGoods);
         model.addAttribute("total", total);
         model.addAttribute("info", info);
-        if ("deleteSelect".equals(act)) {
+        if (deleteSelect.equals(act)) {
             return "admin/deleteSelectGoods";
-        } else if ("updateSelect".equals(act)) {
+        } else if (updateSelect.equals(act)) {
             return "admin/updateSelectGoods";
         } else {
             return "admin/selectGoods";
@@ -91,7 +96,7 @@ public class AdminGoodsService {
         Goods goods = adminGoodsDao.selectGoodsById(id);
         model.addAttribute("goods", goods);
         //修改界面
-        if ("updateAGoods".equals(act)) {
+        if (updateAGoods.equals(act)) {
             return "admin/updateAgoods";
         }
         //详情界面
@@ -122,7 +127,6 @@ public class AdminGoodsService {
             return "forward:/adminGoods/selectGoods?act=deleteSelect";
         }
         adminGoodsDao.deleteAGoods(id);
-        model.addAttribute("mes","成功删除商品");
         return "forward:/adminGoods/selectGoods?act=deleteSelect";
     }
 }

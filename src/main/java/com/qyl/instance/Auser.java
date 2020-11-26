@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
  */
 public class Auser {
     private String aname;
+
     private String apwd;
 
     public String getAname() {

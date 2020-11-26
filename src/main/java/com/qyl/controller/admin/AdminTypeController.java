@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
  * packageName: com.qyl.controller.admin
  * date: 2020-11-08 13:14
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 @Controller
 @RequestMapping("/adminType")
@@ -37,6 +38,13 @@ public class AdminTypeController extends BaseController{
 
     @RequestMapping("/addType")
     public String addType(String typeName, Model model, HttpSession session){
+        /*
+        * @Description: 增加种类
+        * @Param: [typeName, model, session]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/11/26
+        */
         return adminTypeService.addType(typeName,model,session);
     }
 
@@ -54,6 +62,13 @@ public class AdminTypeController extends BaseController{
 
     @RequestMapping("/deleteType")
     public String deleteType(Integer id,Model model){
+        /*
+        * @Description: 删除种类
+        * @Param: [id, model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/11/26
+        */
         return adminTypeService.deleteType(id,model);
     }
 }

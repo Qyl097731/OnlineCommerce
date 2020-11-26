@@ -47,13 +47,27 @@ public class AdminTypeService {
         return "forward:/adminType/toAddType";
     }
 
+    
     public String toDeleteType(Model model) {
+        /*
+        * @Description: 去删除界面 显示所有的商品种类
+        * @Param: [model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/11/26
+        */
         model.addAttribute("allTypes",adminTypeDao.selectGoodsType());
         return "admin/deleteType";
     }
 
     public String deleteType(Integer id, Model model) {
-        //类型有关联
+        /*
+        * @Description: 删除种类 如果类型有关联就不能删除 如果删除成功就需要回显所有的类型 并且显示操作成功与否的信息
+        * @Param: [id, model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/11/26
+        */
         if(adminTypeDao.selectGoodsByType(id).size() > 0 ){
             model.addAttribute("msg","类型有关联，不允许删除");
         }

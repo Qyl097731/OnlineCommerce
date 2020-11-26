@@ -1,5 +1,9 @@
 package com.qyl.instance;
 
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotBlank;
+
 /**
  * projectName:  e-commerce
  * packageName: com.qyl.instance.Buser
@@ -8,7 +12,9 @@ package com.qyl.instance;
  */
 public class Buser {
     private Integer id;
+    @NotBlank(message = "{user.username.required}")
     private String bemail;
+    @Length(min=6,max=50,message = "{user.password.invalid}")
     private String bpwd;
 
     public Integer getId() {

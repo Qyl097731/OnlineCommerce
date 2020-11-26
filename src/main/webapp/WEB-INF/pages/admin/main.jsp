@@ -64,8 +64,8 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">商品管理 <span class="sr-only">(current)</span></a></li>
-                <li><a href="javascript:void(0)">类型管理</a></li>
+                <li class="active"><a href="/adminGoods/selectGoods">商品管理 <span class="sr-only">(current)</span></a></li>
+                <li><a href="/adminType/to">类型管理</a></li>
                 <li><a href="#">用户管理</a></li>
                 <li><a href="#">订单管理</a></li>
                 <li><a href="#">公告管理</a></li>

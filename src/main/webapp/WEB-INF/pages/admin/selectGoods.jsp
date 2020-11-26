@@ -29,16 +29,13 @@
 
     <title>Title</title>
     <script>
-
-
+        function changeColor(param) {
+            $(param).prop("color", "pink");
+        }
+        function changeColor1(param) {
+            $(param).prop("color", "white")
+        }
         $(document).ready(function () {
-            function changeColor(param) {
-                $(param).prop("color", "pink");
-            }
-
-            function changeColor1(param) {
-                $(param).prop("color", "white")
-            }
         })
     </script>
 </head>
@@ -61,8 +58,7 @@
                 <td>${goods.gname}</td>
                 <td>${goods.grprice}</td>
                 <td>${goods.gstore}</td>
-                <td><a href="adminGoods/selectAGoods?id=${goods.id}" target="_blank"
-                       style="text-decoration: none">详情</a></td>
+                <td><a href="adminGoods/selectAGoods?id=${goods.id}" target="_blank">详情</a></td>
             </tr>
         </c:forEach>
         <tr>

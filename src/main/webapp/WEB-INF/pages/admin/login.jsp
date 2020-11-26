@@ -30,23 +30,22 @@
 </head>
 <body>
 <div class="container">
-
-    <form:form action="admin/login" method="post" class="form-signin" modelAttribute="auser">
+    <form:form action="admin/login" method="post" class="form-signin" modelAttribute="auser" >
         <label for="input_aname" class="sr-only">Email address</label>
         <form:input path="aname" type="text" id="input_aname" class="form-control" placeholder="username" />
-        <div style="font-size: xx-small ;color: red"><form:errors path="aname" role="alert"/></div>
+
         <label for="inputPassword" class="sr-only">Password</label>
         <form:input type="password" path="apwd" name="apwd" id="inputPassword" class="form-control" placeholder="password" />
-        <div style="font-size: xx-small ;color: red" ><form:errors path="apwd"  /></div>
-        <input type="text" name="code" style="width: 225px" required/>
+        <div style="font-size: xx-small ;color: red" >${passwordError}</div>
+        <input type="text" name="code" style="width: 225px" id="codeInput" required/>
         <img id="code" src="validateCode"/>
+        <div style="font-size: xx-small ;color: red" id="codeError">${codeError}</div>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <div style="font-size: xx-small ;color: red" role="alert">${msg}</div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginBtn">Sign in</button>
     </form:form>
 
 </div>
