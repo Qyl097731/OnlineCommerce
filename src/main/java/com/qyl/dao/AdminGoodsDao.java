@@ -1,6 +1,9 @@
 package com.qyl.dao;
 
+import com.qyl.instance.Cart;
+import com.qyl.instance.Focus;
 import com.qyl.instance.Goods;
+import com.qyl.instance.OrderDetail;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,8 +13,10 @@ import java.util.Collection;
  * packageName: com.qyl.dao.AdminDao
  * date: 2020-10-30 02:43
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 public interface AdminGoodsDao {
+
     Integer updateGoodsById(Goods goods);
 
     Integer addGoods(Goods goods);
@@ -20,11 +25,11 @@ public interface AdminGoodsDao {
 
     Goods selectGoodsById(Integer id);
 
-    ArrayList<Goods> selectCartGoods(Integer id);
+    ArrayList<Cart> selectCartGoods(Integer id);
 
-    ArrayList<Goods> selectFocusGoods(Integer id);
+    ArrayList<Focus> selectFocusGoods(Integer id);
 
-    ArrayList<Goods> selectOrderDetailGoods(Integer id);
+    ArrayList<OrderDetail> selectOrderDetailGoods(Integer id);
 
     void deleteGoods(ArrayList<Integer> list);
 

@@ -41,7 +41,7 @@
         <div style="font-size: xx-small ;color: red" ><form:errors path="bpwd"/></div>
         <input type="text" name="code" style="width: 225px" required/>
         <img id="code" src="validateCode"/>
-        <div style="font-size: xx-small ;color: red" id="codeError">${codeError}</div>
+        <div style="font-size: xx-small ;color: red" id="codeError">${empty codeError ?'<br>':codeError}</div>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me

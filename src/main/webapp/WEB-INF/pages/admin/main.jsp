@@ -22,13 +22,13 @@
 <head>
     <base href="<%=basePath%>">
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="<%=basePath%>css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/admin/dashboard.css">
     <script>
         $(document).ready(function () {
-            $(".nav-sidebar  li a").click(function () {
-            })
+
         })
     </script>
 </head>
@@ -37,13 +37,14 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-<%--            实现个人信息页面跳转--%>
+            <%--            实现个人信息页面跳转--%>
             <a class="navbar-brand" href="toPersonInfoPage">${sessionScope.auser.aname}</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -64,148 +65,69 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="/adminGoods/selectGoods">商品管理 <span class="sr-only">(current)</span></a></li>
-                <li><a href="/adminType/to">类型管理</a></li>
-                <li><a href="#">用户管理</a></li>
+                <li class="active"><a href="/adminGoods/selectGoods">商品管理</a></li>
+                <li><a href="adminType/toAddType">类型管理</a></li>
+                <li><a href="adminUser/">用户管理</a></li>
                 <li><a href="#">订单管理</a></li>
                 <li><a href="#">公告管理</a></li>
-                <li><a href="#">安全退出</a></li>
+                <li><a href="admin/exit">安全退出</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h2 class="sub-header">商品列表</h2>
             <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>序号</th>
-                        <th>商品编号</th>
-                        <th>名称</th>
-                        <th>价格</th>
-                        <th>库存</th>
-                        <th>详情</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1,001</td>
-                        <td>Lorem</td>
-                        <td>ipsum</td>
-                        <td>dolor</td>
-                        <td>sit</td>
-                        <td>详情</td>
-                    </tr>
-                    <tr>
-                        <td>1,002</td>
-                        <td>amet</td>
-                        <td>consectetur</td>
-                        <td>adipiscing</td>
-                        <td>elit</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>Integer</td>
-                        <td>nec</td>
-                        <td>odio</td>
-                        <td>Praesent</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>libero</td>
-                        <td>Sed</td>
-                        <td>cursus</td>
-                        <td>ante</td>
-                    </tr>
-                    <tr>
-                        <td>1,004</td>
-                        <td>dapibus</td>
-                        <td>diam</td>
-                        <td>Sed</td>
-                        <td>nisi</td>
-                    </tr>
-                    <tr>
-                        <td>1,005</td>
-                        <td>Nulla</td>
-                        <td>quis</td>
-                        <td>sem</td>
-                        <td>at</td>
-                    </tr>
-                    <tr>
-                        <td>1,006</td>
-                        <td>nibh</td>
-                        <td>elementum</td>
-                        <td>imperdiet</td>
-                        <td>Duis</td>
-                    </tr>
-                    <tr>
-                        <td>1,007</td>
-                        <td>sagittis</td>
-                        <td>ipsum</td>
-                        <td>Praesent</td>
-                        <td>mauris</td>
-                    </tr>
-                    <tr>
-                        <td>1,008</td>
-                        <td>Fusce</td>
-                        <td>nec</td>
-                        <td>tellus</td>
-                        <td>sed</td>
-                    </tr>
-                    <tr>
-                        <td>1,009</td>
-                        <td>augue</td>
-                        <td>semper</td>
-                        <td>porta</td>
-                        <td>Mauris</td>
-                    </tr>
-                    <tr>
-                        <td>1,010</td>
-                        <td>massa</td>
-                        <td>Vestibulum</td>
-                        <td>lacinia</td>
-                        <td>arcu</td>
-                    </tr>
-                    <tr>
-                        <td>1,011</td>
-                        <td>eget</td>
-                        <td>nulla</td>
-                        <td>Class</td>
-                        <td>aptent</td>
-                    </tr>
-                    <tr>
-                        <td>1,012</td>
-                        <td>taciti</td>
-                        <td>sociosqu</td>
-                        <td>ad</td>
-                        <td>litora</td>
-                    </tr>
-                    <tr>
-                        <td>1,013</td>
-                        <td>torquent</td>
-                        <td>per</td>
-                        <td>conubia</td>
-                        <td>nostra</td>
-                    </tr>
-                    <tr>
-                        <td>1,014</td>
-                        <td>per</td>
-                        <td>inceptos</td>
-                        <td>himenaeos</td>
-                        <td>Curabitur</td>
-                    </tr>
-                    <tr>
-                        <td>1,015</td>
-                        <td>sodales</td>
-                        <td>ligula</td>
-                        <td>in</td>
-                        <td>libero</td>
-                    </tr>
-                    <tr>
+                <c:if test="${allGoods.size() == 0}">
+                    您还没有商品。
+                </c:if>
+                <c:if test="${allGoods.size() != 0}">
+                <table border="1" bordercolor="PaleGreen">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th width="100px">ID</th>
+                            <th width="200px">名称</th>
+                            <th width="200px">现价</th>
+                            <th width="200px">原价</th>
+                            <th width="100px">库存</th>
+                            <th width="200px">详情</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${allGoods}" var="goods">
+                        <tr>
+                            <td>${goods.id}</td>
+                            <td>${goods.gname}</td>
+                            <td>${goods.grprice}</td>
+                            <td>${goods.goprice}</td>
+                            <td>${goods.gstore}</td>
+                            <td><a href="/adminGoods/selectAGoods?id=${goods.id}" target="_blank">详情</a></td>
+                        </tr>
+                        </c:forEach>
+                        <tr>
+                            <td colspan="6">
+                                <span>
+                                    共${total}条记录&nbsp;&nbsp;
+                                    共${info.pages}页&nbsp;&nbsp;
+                                </span>
+                                <span style="text-align: center">
+                                <a href="adminGoods/selectGoods?pageCur=${info.prePage}"
+                                   contenteditable="${info.pageNum==1}"
+                                   style="text-decoration:${info.pageNum==1?'none':'underline'};outline: none">上一页</a>
+                                <c:forEach items="${nums}" var="num">
+                                    <a href="adminGoods/selectGoods?pageCur=${num}"
+                                       style="text-decoration:${num==info.pageNum?'none':'underline'};outline: none"
+                                       contenteditable="${num==info.pageNum}" >${num}</a>
+                                </c:forEach>
+                                <a href="adminGoods/selectGoods?pageCur=${info.nextPage}"
+                                   contenteditable="${info.pages==info.pageNum}"
+                                   style="text-decoration:${info.pages==info.pageNum?'none':'underline'};outline: none">下一页</a>
+                                </span>
+                            </td>
 
-                    </tr>
-                    </tbody>
+                        </tr>
+                    </table>
+                    </c:if>
                 </table>
-
             </div>
         </div>
     </div>

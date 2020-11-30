@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
  * packageName: com.qyl.instance
  * date: 2020-10-30 03:09
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 public class Goods {
     private Integer id;

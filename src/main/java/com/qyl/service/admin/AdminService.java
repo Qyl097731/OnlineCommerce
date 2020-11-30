@@ -1,15 +1,18 @@
 package com.qyl.service.admin;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.qyl.dao.AdminDao;
+import com.qyl.dao.AdminGoodsDao;
 import com.qyl.dao.AdminTypeDao;
 import com.qyl.instance.Auser;
+import com.qyl.instance.Goods;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
+import java.util.ArrayList;
 
 /**
  * projectName:  e-commerce
@@ -20,10 +23,12 @@ import javax.validation.Valid;
 @Service
 public class AdminService {
     private final AdminDao adminDao;
+    private final AdminGoodsDao adminGoodsDao;
     private final AdminTypeDao adminTypeDao;
     @Autowired(required = false)
-    public AdminService(AdminDao adminDao, AdminTypeDao adminTypeDao) {
+    public AdminService(AdminDao adminDao, AdminGoodsDao adminGoodsDao, AdminTypeDao adminTypeDao) {
         this.adminDao = adminDao;
+        this.adminGoodsDao = adminGoodsDao;
         this.adminTypeDao = adminTypeDao;
     }
 
@@ -41,6 +46,15 @@ public class AdminService {
         if(auser1 != null && auser1.getApwd().equals(auser.getApwd())) {
             session.setAttribute("auser",auser);
             //添加商品与修改商品的页面所要的信息
+            PageHelper.startPage(1, 10);
+            ArrayList<Goods> allGoods = adminGoodsDao.selectGoods();
+            PageInfo<Goods> info = new PageInfo<>(allGoods, 5);
+            int[] nums = info.getNavigatepageNums();
+            long total = info.getTotal();
+            model.addAttribute("nums", nums);
+            model.addAttribute("allGoods", allGoods);
+            model.addAttribute("total", total);
+            model.addAttribute("info", info);
             session.setAttribute("goodsType",adminTypeDao.selectGoodsType());
             return "admin/main";
         }

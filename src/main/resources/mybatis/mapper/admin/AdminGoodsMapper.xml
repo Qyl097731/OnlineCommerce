@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.qyl.dao.AdminGoodsDao">
-    <!--Integer updateGoodsById(Goods goods);
+    <!--
+        Integer updateGoodsById(Goods goods);
 
         Integer addGoods(Goods goods);
         ArrayList<Goods> selectGoods();
@@ -16,9 +17,9 @@
         select goods.*, goodstype.typename from tb_goods goods ,tb_goodstype goodstype
         where goods.gtype_id = goodstype.id
     </select>
-    <select id="selectGoodsById" parameterType="java.lang.Integer">
+    <select id="selectGoodsById" parameterType="java.lang.Integer" resultType="com.qyl.instance.Goods">
         select goods.*, gtype.typename from tb_goodstype gtype,tb_goods goods
-        where gtype.id = goods.gtype_id and gtype.id = #{id}
+        where gtype.id = goods.gtype_id and goods.id = #{id}
     </select>
     <update id="updateGoodsById">
         update tb_goods
@@ -38,31 +39,31 @@
             <if test="gpicture!=null">
                 gpicture=#{gpicture}
             </if>
-            <if test="goodstype_id!=null">
-                gtype_id=#{goodstype_id}
+            <if test="gtypeId!=null">
+                gtypeId=#{gtypeId}
             </if>
         </set>
         where id = #{id}
     </update>
 <!--
-    ArrayList<Goods> selectCartGoods(Integer id);
+    ArrayList<Cart> selectCartGoods(Integer id);
 
-    ArrayList<Goods> selectFocusGoods(Integer id);
+    ArrayList<Focus> selectFocusGoods(Integer id);
 
-    ArrayList<Goods> selectOrderDetailGoods(Integer id);
+    ArrayList<OrderDetail> selectOrderDetailGoods(Integer id);
 
     void deleteGoods(ArrayList<Integer> list);
 
     void deleteAGoods(Integer id);
 -->
-    <select id="selectCartGoods">
+    <select id="selectCartGoods" resultType="com.qyl.instance.Cart">
         select * from tb_cart where goodstable_id=#{id}
     </select>
-    <select id="selectFocusGoods">
+    <select id="selectFocusGoods" resultType="com.qyl.instance.Focus">
         select * from tb_focus where goodstable_id=#{id}
     </select>
-    <select id="selectOrderDetailGoods">
-        select * from tb_ordetdetail where goodstable_id=#{id}
+    <select id="selectOrderDetailGoods" resultType="com.qyl.instance.OrderDetail">
+        select * from tb_orderdetail where goodstable_id=#{id}
     </select>
 
     <delete id="deleteGoods" >

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * packageName: com.qyl.controller.admin
  * date: 2020-11-08 18:33
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 @Controller
 @RequestMapping("/adminUser")

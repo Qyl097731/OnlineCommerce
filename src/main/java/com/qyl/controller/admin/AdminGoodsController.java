@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -57,7 +58,7 @@ public class AdminGoodsController extends BaseController{
 
 
     @RequestMapping("/selectGoods")
-    public String selectGoods(Model model,Integer pageCur,String act){
+    public String selectGoods(Model model, @RequestParam(value = "pageCur",defaultValue = "1", required = false) Integer pageCur, String act){
         return adminGoodsService.selectGoods(model,pageCur,act);
     }
 

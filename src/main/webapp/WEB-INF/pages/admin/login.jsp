@@ -33,13 +33,13 @@
     <form:form action="admin/login" method="post" class="form-signin" modelAttribute="auser" >
         <label for="input_aname" class="sr-only">Email address</label>
         <form:input path="aname" type="text" id="input_aname" class="form-control" placeholder="username" />
-
+        <div style="font-size: xx-small ;color: red" >${empty anameError ?'<br>':anameError}</div>
         <label for="inputPassword" class="sr-only">Password</label>
         <form:input type="password" path="apwd" name="apwd" id="inputPassword" class="form-control" placeholder="password" />
-        <div style="font-size: xx-small ;color: red" >${passwordError}</div>
+        <div style="font-size: xx-small ;color: red" >${empty passwordError ?'<br>':passworError}</div>
         <input type="text" name="code" style="width: 225px" id="codeInput" required/>
         <img id="code" src="validateCode"/>
-        <div style="font-size: xx-small ;color: red" id="codeError">${codeError}</div>
+        <div style="font-size: xx-small ;color: red" id="codeError">${empty codeError ?'<br>':codeError}</div>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me

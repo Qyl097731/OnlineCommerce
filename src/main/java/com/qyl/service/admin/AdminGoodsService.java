@@ -104,7 +104,7 @@ public class AdminGoodsService {
     }
 
     public String deleteGoods(Integer[] ids, Model model) {
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < ids.length; i++) {
             if (adminGoodsDao.selectCartGoods(ids[i]).size() > 0 ||
                 adminGoodsDao.selectFocusGoods(ids[i]).size() > 0 ||
