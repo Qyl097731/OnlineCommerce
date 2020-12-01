@@ -3,4 +3,28 @@
 <mapper namespace="com.qyl.dao.AdminUserDao">
 
 
+
+    <select id="userInfo" resultType="com.qyl.instance.Buser">
+        select * from tb_buser
+    </select>
+    <select id="selectOrderBaseByUId" resultType="com.qyl.instance.OrderDetail">
+        select * from tb_orderbase where busertable_id = #{id}
+    </select>
+    <select id="selectFocusByUId" resultType="com.qyl.instance.Focus">
+        select * from tb_focus where busertable_id = #{id}
+    </select>
+    <delete id="deleteOrderBaseByUId">
+        delete  from tb_orderbase where busertable_id = #{id}
+    </delete>
+    <delete id="deleteOrderDetailByUId">
+        delete tod from tb_orderdetail tod
+        inner join tb_orderbase tob
+        where tob.busertable_id = #{id} and tob.id = tod.orderbasetable_id
+    </delete>
+    <delete id="deleteFocusByUId">
+        delete  from tb_focus where busertable_id = #{id}
+    </delete>
+    <delete id="deleteUserByUId">
+        delete from tb_buser where id = #{id}
+    </delete>
 </mapper>

@@ -27,25 +27,10 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
     <link rel="stylesheet" type="text/css" href="css/admin/dashboard.css">
     <script>
-        function showMenu(id) {
-            $(".dropdown-menu").hide().eq(id).css("display","block")
-        }
-
-        function hideMenu(id) {
-            $(".dropdown-menu").eq(id).hide()
-        }
-
         $(document).ready(function () {
-            if ($(".nav-sidebar li").mousemove(function () {
-                const id = $(this).index();
-                showMenu(id);
-            })) ;
-            if ($(".nav-sidebar li").mousemove(function () {
-                const id = $(this).index();
-
-
-                hideMenu(id);
-            })) ;
+            if(${not empty msg}){
+                alert(${msg})
+            }
         })
     </script>
 </head>
@@ -74,23 +59,11 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active">
-                    <a href="adminGoods/selectGoods">商品管理</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="adminGoods/selectGoods">商品管理</a></li>
-                        <li><a href="adminGoods/toAddGoods">商品添加</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="adminGoods/selectGoods">公告管理</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="adminGoods/selectGoods">公告管理</a></li>
-                        <li><a href="adminGoods/toAddGoods">公告添加</a></li>
-                    </ul>
-                </li>
+                <li><a href="adminGoods/selectGoods">商品管理</a></li>
                 <li><a href="adminType/toManagerType">类型管理</a></li>
-                <li><a href="adminUser/userInfo">用户管理</a></li>
+                <li class="active"><a href="adminUser/userInfo">用户管理</a></li>
                 <li><a href="adminOrder/orderInfo">订单管理</a></li>
+                <li><a href="adminNotice/noticeInfo">公告管理</a></li>
                 <li><a href="admin/exit">安全退出</a></li>
             </ul>
         </div>
@@ -105,23 +78,19 @@
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th width="100px">ID</th>
-                            <th width="200px">名称</th>
-                            <th width="200px">现价</th>
-                            <th width="200px">原价</th>
-                            <th width="100px">库存</th>
-                            <th width="200px">详情</th>
+                            <th width="100px" colspan="2">ID</th>
+                            <th width="200px">用户Email</th>
+                            <th width="200px" colspan="2">用户密码</th>
+                            <th width="200px" colspan="2">操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${allGoods}" var="goods">
+                        <c:forEach items="${userList}" var="user">
                         <tr>
-                            <td>${goods.id}</td>
-                            <td>${goods.gname}</td>
-                            <td>${goods.grprice}</td>
-                            <td>${goods.goprice}</td>
-                            <td>${goods.gstore}</td>
-                            <td><a href="/adminGoods/selectAGoods?id=${goods.id}" target="_blank">详情</a></td>
+                            <td colspan="2">${user.id}</td>
+                            <td>${user.bemail}</td>
+                            <td colspan="2">${user.bpwd}</td>
+                            <td colspan="2"><a href="adminUser/deleteuserManager?id=${user.id}">删除</a></td>
                         </tr>
                         </c:forEach>
                         <tr>
@@ -131,17 +100,17 @@
                                     共${info.pages}页&nbsp;&nbsp;
                                 </span>
                             </td>
-                            <td colspan="4">
+                            <td colspan="5">
                                 <span style="text-align: center">
-                                <a href="adminGoods/selectGoods?pageCur=${info.prePage}"
+                                <a href="adminGoods/userInfo?pageCur=${info.prePage}"
                                    contenteditable="${info.pageNum==1}"
                                    style="text-decoration:${info.pageNum==1?'none':'underline'};outline: none">上一页</a>
                                 <c:forEach items="${nums}" var="num">
-                                    <a href="adminGoods/selectGoods?pageCur=${num}"
+                                    <a href="adminGoods/userInfo?pageCur=${num}"
                                        style="text-decoration:${num==info.pageNum?'none':'underline'};outline: none"
-                                       contenteditable="${num==info.pageNum}">${num}</a>
+                                       contenteditable="${num==info.pageNum}" >${num}</a>
                                 </c:forEach>
-                                <a href="adminGoods/selectGoods?pageCur=${info.nextPage}"
+                                <a href="adminGoods/userInfo?pageCur=${info.nextPage}"
                                    contenteditable="${info.pages==info.pageNum}"
                                    style="text-decoration:${info.pages==info.pageNum?'none':'underline'};outline: none">下一页</a>
                                 </span>

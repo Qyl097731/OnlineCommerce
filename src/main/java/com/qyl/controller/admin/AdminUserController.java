@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * projectName:  e-commerce
@@ -25,12 +26,12 @@ public class AdminUserController extends BaseController{
 
 
     @RequestMapping("/userInfo")
-    public String userInfo(Model model){
-        return adminUserService.userInfo(model);
+    public String userInfo(Model model,@RequestParam(value = "pageCur",defaultValue = "1") Integer pageCur){
+        return adminUserService.userInfo(model,pageCur);
     }
     @RequestMapping("/deleteuserManager")
-    public String deleteuserManager(Integer id){
-        return adminUserService.deleteuserManager(id);
+    public String deleteuserManager(Integer id,Model model){
+        return adminUserService.deleteuserManager(id,model);
     }
 
 

@@ -15,8 +15,8 @@
 
     Integer deleteType(Integer id);
 -->
-    <select id="selectGoodsByType">
-        select * from tb_goods where goodstype_id = #{id}
+    <select id="selectGoodsByType" resultType="com.qyl.instance.Goods">
+        select * from tb_goods where gtype_id = #{id}
     </select>
     <delete id="deleteType" parameterType="java.lang.Integer">
         delete from tb_goodsType where id = #{id}

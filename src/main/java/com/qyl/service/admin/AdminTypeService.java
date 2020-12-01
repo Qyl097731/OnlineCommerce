@@ -14,6 +14,7 @@ import java.util.ArrayList;
  * packageName: com.qyl.service.admin
  * date: 2020-11-08 13:13
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 @Service
 public class AdminTypeService {
@@ -28,7 +29,7 @@ public class AdminTypeService {
         return adminTypeDao.selectGoodsType();
     }
 
-    public String toAddType(Model model) {
+    public String toManagerType(Model model) {
         /*
         * @Description: 查出种类 并且回显
         * @Param: [model]
@@ -36,29 +37,18 @@ public class AdminTypeService {
         * @Author: Mr.Qiu
         * @Date: 2020/11/8
         */
+        model.addAttribute("goodsType",new GoodsType());
         model.addAttribute("allTypes",adminTypeDao.selectGoodsType());
-        return "forward:/admin/addType";
+        return "admin/managerType";
     }
 
-    public String addType(String typeName, Model model, HttpSession session){
-        adminTypeDao.addType(typeName);
+    public String addType(String typename, Model model, HttpSession session){
+        adminTypeDao.addType(typename);
         //添加商品与修改商品页面使用
         session.setAttribute("goodsType",adminTypeDao.selectGoodsType());
-        return "forward:/adminType/toAddType";
+        return "forward:/adminType/toManagerType";
     }
 
-    
-    public String toDeleteType(Model model) {
-        /*
-        * @Description: 去删除界面 显示所有的商品种类
-        * @Param: [model]
-        * @return: java.lang.String
-        * @Author: Mr.Qiu
-        * @Date: 2020/11/26
-        */
-        model.addAttribute("allTypes",adminTypeDao.selectGoodsType());
-        return "admin/deleteType";
-    }
 
     public String deleteType(Integer id, Model model) {
         /*
@@ -70,10 +60,11 @@ public class AdminTypeService {
         */
         if(adminTypeDao.selectGoodsByType(id).size() > 0 ){
             model.addAttribute("msg","类型有关联，不允许删除");
+            return "forward:/adminType/toManagerType";
         }
         if(adminTypeDao.deleteType(id) > 0){
             model.addAttribute("msg","类型成功删除");
         }
-        return "forward:/adminType/toDeleteType";
+        return "forward:/adminType/toManagerType";
     }
 }

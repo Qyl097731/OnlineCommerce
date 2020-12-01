@@ -60,7 +60,7 @@ public class AdminGoodsService {
             if (adminGoodsDao.updateGoodsById(goods) > 0) {
                 return "forward:/adminGoods/selectGoods?act=updateSelect";
             } else {
-                return "/adminGoods/updateAgoods";
+                return "admin/updateAgoods";
             }
         } else {
             //保存到数据库
@@ -74,7 +74,7 @@ public class AdminGoodsService {
     }
 
     public String selectGoods(Model model, Integer pageCur, String act) {
-        PageHelper.startPage(pageCur, 10);
+        PageHelper.startPage(pageCur, 20);
         ArrayList<Goods> allGoods = adminGoodsDao.selectGoods();
         PageInfo<Goods> info = new PageInfo<>(allGoods, 5);
         int[] nums = info.getNavigatepageNums();

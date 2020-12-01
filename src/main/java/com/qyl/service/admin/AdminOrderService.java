@@ -1,9 +1,13 @@
 package com.qyl.service.admin;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.qyl.dao.AdminOrderDao;
+import com.qyl.instance.Goods;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -28,9 +32,16 @@ public class AdminOrderService {
         return "forward:/adminOrder/orderInfo";
     }
 
-    public String orderInfo(Model model) {
-        ArrayList<Map<String,Object> >list = adminOrderDao.orderInfo();
-        model.addAttribute("orderList",list);
-        return "admin/orderManager";
+    public String orderInfo(Model model,@RequestParam(value = "pageCur",defaultValue = "1") Integer pageCur) {
+        PageHelper.startPage(pageCur, 10);
+        ArrayList<Map<String,Object> > list = adminOrderDao.orderInfo();
+        PageInfo<Map<String,Object>> info = new PageInfo<>(list, 5);
+        int[] nums = info.getNavigatepageNums();
+        long total = info.getTotal();
+        model.addAttribute("nums", nums);
+        model.addAttribute("orderList", list);
+        model.addAttribute("total", total);
+        model.addAttribute("info", info);
+        return "admin/managerOrder";
     }
 }

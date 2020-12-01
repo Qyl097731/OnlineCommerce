@@ -46,7 +46,7 @@ public class AdminService {
         if(auser1 != null && auser1.getApwd().equals(auser.getApwd())) {
             session.setAttribute("auser",auser);
             //添加商品与修改商品的页面所要的信息
-            PageHelper.startPage(1, 10);
+            PageHelper.startPage(1, 20);
             ArrayList<Goods> allGoods = adminGoodsDao.selectGoods();
             PageInfo<Goods> info = new PageInfo<>(allGoods, 5);
             int[] nums = info.getNavigatepageNums();
@@ -71,4 +71,25 @@ public class AdminService {
         return "admin/login";
     }
 
+    public String toPageMain(Model model) {
+        PageHelper.startPage(1, 10);
+        ArrayList<Goods> allGoods = adminGoodsDao.selectGoods();
+        PageInfo<Goods> info = new PageInfo<>(allGoods, 5);
+        int[] nums = info.getNavigatepageNums();
+        long total = info.getTotal();
+        model.addAttribute("nums", nums);
+        model.addAttribute("allGoods", allGoods);
+        model.addAttribute("total", total);
+        model.addAttribute("info", info);
+        return "admin/main";
+    }
+
+    public String updateInfo(Model model, Auser auser) {
+        if(adminDao.updateInfo(auser) > 1){
+            model.addAttribute("修改成功");
+        }else{
+            model.addAttribute("修改失败");
+        }
+        return "admin/main";
+    }
 }

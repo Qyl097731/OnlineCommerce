@@ -6,10 +6,10 @@
         void deleteOrderDetail(Integer id);
 
         void deleteOrderBase(Integer id);-->
-    <select id="orderInfo">
-        select tob.id , tob.amount,tob.status,orderdate,tb.email,tb.id
+    <select id="orderInfo" resultType="map">
+        select tob.id , tob.amount,tob.status,orderdate,tb.bemail,tb.id userId
         from tb_buser tb,tb_orderbase tob
-        where tb.id = tob.busertb2_tb;
+        where tb.id = tob.busertable_id
     </select>
     <delete id="deleteOrderDetail">
         delete from tb_orderdetail where orderbasetable_id = #{id}
@@ -17,4 +17,5 @@
     <delete id="deleteOrderBase">
         delete from tb_orderbase where id = #{id}
     </delete>
+
 </mapper>

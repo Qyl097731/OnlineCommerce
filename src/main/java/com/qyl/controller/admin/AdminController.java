@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -28,6 +29,18 @@ public class AdminController {
         this.adminService = adminService;
     }
 
+    @RequestMapping("/toPageMain")
+    public String toPageMain(Model model){
+        /*
+        * @Description: 跳转主页
+        * @Param: []
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/1
+        */
+        return adminService.toPageMain(model);
+    }
+    
     @RequestMapping("/toPageAdminLogin")
     public String toPageAdminLogin(@ModelAttribute("auser") Auser auser){
         /*
@@ -37,9 +50,26 @@ public class AdminController {
         * @Author: Mr.Qiu
         * @Date: 2020/11/26
         */
+
         return "admin/login";
     }
 
+    @RequestMapping("/toUpdateInfo")
+    public String toUpdateInfo(Model model,HttpSession session){
+        /*
+        * @Description: 跳转到信息更新页面
+        * @Param: []
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/1
+        */
+        model.addAttribute((Auser)session.getAttribute("auser"));
+        return "admin/updateInfo";
+    }
+    @RequestMapping("/updateInfo")
+    public String updateInfo(Model model,Auser auser){
+        return adminService.updateInfo(model,auser);
+    }
     @RequestMapping("/login")
     public String login(@ModelAttribute("auser") Auser auser,String code, Model model, HttpSession session){
         /*

@@ -25,22 +25,22 @@
         update tb_goods
         <set>
             <if test="gname!=null">
-                gname=#{gname}
+                gname=#{gname},
             </if>
             <if test="goprice!=null">
-                goprice=#{goprice}
+                goprice=#{goprice},
             </if>
             <if test="grprice!=null">
-                grprice=#{grprice}
+                grprice=#{grprice},
             </if>
             <if test="gstore!=null">
-                gstore=#{gstore}
+                gstore=#{gstore},
             </if>
             <if test="gpicture!=null">
-                gpicture=#{gpicture}
+                gpicture=#{gpicture},
             </if>
             <if test="gtypeId!=null">
-                gtypeId=#{gtypeId}
+                gtype_id=#{gtypeId}
             </if>
         </set>
         where id = #{id}

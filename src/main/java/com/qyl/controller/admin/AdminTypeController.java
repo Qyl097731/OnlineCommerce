@@ -17,15 +17,15 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 @RequestMapping("/adminType")
-public class AdminTypeController extends BaseController{
+public class AdminTypeController{
     private final AdminTypeService adminTypeService;
 
     @Autowired
     public AdminTypeController(AdminTypeService adminTypeService) {
         this.adminTypeService = adminTypeService;
     }
-    @RequestMapping("/toAddType")
-    public String toAddType(Model model){
+    @RequestMapping("/toManagerType")
+    public String toManageType(Model model){
         /*
         * @Description: 到添加类型界面
         * @Param: [model]
@@ -33,11 +33,11 @@ public class AdminTypeController extends BaseController{
         * @Author: Mr.Qiu
         * @Date: 2020/11/8
         */
-        return adminTypeService.toAddType(model);
+        return adminTypeService.toManagerType(model);
     }
 
     @RequestMapping("/addType")
-    public String addType(String typeName, Model model, HttpSession session){
+    public String addType(String typename, Model model, HttpSession session){
         /*
         * @Description: 增加种类
         * @Param: [typeName, model, session]
@@ -45,19 +45,7 @@ public class AdminTypeController extends BaseController{
         * @Author: Mr.Qiu
         * @Date: 2020/11/26
         */
-        return adminTypeService.addType(typeName,model,session);
-    }
-
-    @RequestMapping("/toDeleteType")
-    public String toDeleteType(Model model){
-        /*
-        * @Description: 到删除类型界面
-        * @Param: [model]
-        * @return: java.lang.String
-        * @Author: Mr.Qiu
-        * @Date: 2020/11/8
-        */
-        return adminTypeService.toDeleteType(model);
+        return adminTypeService.addType(typename,model,session);
     }
 
     @RequestMapping("/deleteType")

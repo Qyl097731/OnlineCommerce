@@ -37,21 +37,13 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
             <%--            实现个人信息页面跳转--%>
-            <a class="navbar-brand" href="toPersonInfoPage">${sessionScope.auser.aname}</a>
+            <a class="navbar-brand" href="admin/toUpdateInfo">${sessionScope.auser.aname}</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="admin/toPageMain">Dashboard</a></li>
+                <li><a href="admin/toUpdateInfo">Profile</a></li>
                 <li><a href="#">Help</a></li>
             </ul>
             <form class="navbar-form navbar-right">
@@ -65,12 +57,12 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="/adminGoods/selectGoods">商品管理</a></li>
-                <li><a href="/adminType/toAddType">类型管理</a></li>
-                <li><a href="#">用户管理</a></li>
-                <li><a href="#">订单管理</a></li>
-                <li><a href="#">公告管理</a></li>
-                <li><a href="#">安全退出</a></li>
+                <li class="active"><a href="adminGoods/selectGoods">商品管理</a></li>
+                <li><a href="adminType/toManagerType">类型管理</a></li>
+                <li><a href="adminUser/userInfo">用户管理</a></li>
+                <li><a href="adminOrder/orderInfo">订单管理</a></li>
+                <li><a href="adminNotice/noticeInfo">公告管理</a></li>
+                <li><a href="admin/exit">安全退出</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -104,11 +96,13 @@
                         </tr>
                         </c:forEach>
                         <tr>
-                            <td colspan="6">
+                            <td colspan="2">
                                 <span>
                                     共${total}条记录&nbsp;&nbsp;
                                     共${info.pages}页&nbsp;&nbsp;
                                 </span>
+                            </td>
+                            <td colspan="4">
                                 <span style="text-align: center">
                                 <a href="adminGoods/selectGoods?pageCur=${info.prePage}"
                                    contenteditable="${info.pageNum==1}"
@@ -123,7 +117,6 @@
                                    style="text-decoration:${info.pages==info.pageNum?'none':'underline'};outline: none">下一页</a>
                                 </span>
                             </td>
-
                         </tr>
                     </table>
                     </c:if>
