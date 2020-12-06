@@ -22,17 +22,32 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
     <link rel="stylesheet" type="text/css"
-          href="css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
-    <link rel="stylesheet" type="text/css" href="css/admin/dashboard.css">
+          href="/css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <script src="/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/jquery/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
+    <link rel="stylesheet" type="text/css" href="/css/admin/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="/css/admin/main.css">
     <script>
+        function showMenu(id) {
+            $(".menu").hide().eq(id).css("display","block")
+        }
 
+        function hideMenu() {
+            $(".menu").hidden;
+        }
         $(document).ready(function () {
             if (${not empty msg}) {
                 alert("${msg}")
             }
+            if ($(".nav-sidebar li").mousemove(function () {
+                const id = $(this).index();
+                showMenu(id);
+            })) ;
+            if ($(".nav-sidebar li").mouseout(function () {
+                hideMenu();
+            })) ;
         })
     </script>
 </head>
@@ -61,11 +76,24 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li><a href="adminGoods/selectGoods">商品管理</a></li>
+                <li class="active">
+                    <a href="adminGoods/selectGoods" >商品管理</a>
+                    <ul class="nav nav-sidebar menu" hidden >
+                        <li><a href="adminGoods/selectGoods">商品列表</a></li>
+                        <li><a href="adminGoods/toAddGoods">商品添加</a></li>
+                        <li><a href="adminGoods/selectGoods?act=deleteSelect">商品删除</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="adminNotice/selectGoods">公告管理</a>
+                    <ul class="nav nav-sidebar menu" hidden >
+                        <li><a href="adminGoods/selectNotices">公告列表</a></li>
+                        <li><a href="adminGoods/toAddGoods">公告添加</a></li>
+                    </ul>
+                </li>
                 <li><a href="adminType/toManagerType">类型管理</a></li>
                 <li><a href="adminUser/userInfo">用户管理</a></li>
-                <li class="active"><a href="adminOrder/orderInfo">订单管理</a></li>
-                <li><a href="adminNotice/noticeInfo">公告管理</a></li>
+                <li><a href="adminOrder/orderInfo">订单管理</a></li>
                 <li><a href="admin/exit">安全退出</a></li>
             </ul>
         </div>
@@ -132,10 +160,5 @@
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 </body>
 </html>

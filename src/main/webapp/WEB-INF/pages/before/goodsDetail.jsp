@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: asus
-  Date: 2020/10/29
-  Time: 16:18
+  Date: 2020/12/2
+  Time: 16:59
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
@@ -15,17 +15,16 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
     <link rel="stylesheet" type="text/css"
-          href="css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+          href="/css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <script src="/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/jquery/jquery-3.5.1.js"></script>
+    <script src="/css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="/css/before/main.css" rel="stylesheet"/>
 </head>
 <body>
-<a href="before/toLogin">登录</a>
-<a href="before/toPageBeforeRegister">注册</a>
-
-</div>
+<jsp:include page="head.jsp"/>
 
 </body>
 </html>

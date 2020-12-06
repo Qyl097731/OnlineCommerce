@@ -4,12 +4,6 @@
   Date: 2020/11/3
   Time: 20:44
   To change this template use File | Settings | File Templates.
---%><%--
-  Created by IntelliJ IDEA.
-  User: asus
-  Date: 2020/10/29
-  Time: 23:30
-  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%
@@ -23,11 +17,13 @@
 <head>
     <base href="<%=basePath%>">
 
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+
     <link rel="stylesheet" type="text/css"
-          href="<%=basePath%>css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
-    <link href="<%=basePath%>css/login.css" rel="stylesheet">
+          href="/css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <script src="/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/jquery/jquery-3.5.1.js"></script>
+    <script src="/css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href="/css/login.css" rel="stylesheet">
     <script>
         $(document).ready(function () {
             $("#code").click(function () {

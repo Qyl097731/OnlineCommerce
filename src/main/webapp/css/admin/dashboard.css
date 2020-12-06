@@ -6,7 +6,14 @@
 body {
   padding-top: 50px;
 }
-
+table{
+  table-layout:fixed;
+}
+.table tbody tr td{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
 
 /*
  * Global add-ons

@@ -75,7 +75,7 @@ public class UserService {
         }
         Buser ruser = null;
         ArrayList<Buser> list = userDao.login(buser);
-        if (list.size() > 0) {
+        if ( list.size() > 0) {
             ruser = list.get(0);
         }
         if (ruser == null) {
@@ -83,11 +83,12 @@ public class UserService {
             model.addAttribute("bemailError", "用户不存在");
             return "before/login";
         }
-        if (buser.getBpwd().equals(ruser.getBpwd()) == false) {
+        if (!buser.getBpwd().equals(ruser.getBpwd())) {
             model.addAttribute("buser", buser);
             model.addAttribute("passwordError", "密码错误");
             return "before/login";
         }
-        return "before/searchResult";
+        session.setAttribute("buser",buser);
+        return "forward:/before";
     }
 }

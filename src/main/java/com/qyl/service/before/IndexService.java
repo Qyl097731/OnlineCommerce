@@ -54,4 +54,9 @@ public class IndexService {
         model.addAttribute("goods",goods);
         return "before/goodsDetail";
     }
+
+    public String toLogin(Model model) {
+        model.addAttribute("buser",new Buser());
+        return "before/login";
+    }
 }

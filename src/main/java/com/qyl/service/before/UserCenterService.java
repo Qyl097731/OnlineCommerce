@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
  * packageName: com.qyl.service.before
  * date: 2020-11-24 13:07
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 @Service
 public class UserCenterService {

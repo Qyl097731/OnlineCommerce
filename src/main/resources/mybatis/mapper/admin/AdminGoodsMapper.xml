@@ -10,8 +10,8 @@
         Goods selectGoodsById(Integer id);
     -->
     <insert id="addGoods" useGeneratedKeys="true" keyProperty="id">
-        insert into tb_goods(gname,goprice,grprice,gstore,gpicture,gtype_id)
-        values(#{gname},#{goprice},#{grprice},#{gstore},#{gpicture},#{gtypeId})
+        insert into tb_goods(gname,goprice,grprice,gstore,gpicture,gtype_id,description)
+        values(#{gname},#{goprice},#{grprice},#{gstore},#{gpicture},#{gtypeId},#{description})
     </insert>
     <select id="selectGoods" resultType="com.qyl.instance.Goods">
         select goods.*, goodstype.typename from tb_goods goods ,tb_goodstype goodstype

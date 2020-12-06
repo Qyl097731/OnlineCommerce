@@ -1,12 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
   User: asus
-  Date: 2020/11/8
-  Time: 19:31
-  To change this template use File | Settings | File Templates.
---%><%--
-  Created by IntelliJ IDEA.
-  User: asus
   Date: 2020/10/29
   Time: 23:30
   To change this template use File | Settings | File Templates.
@@ -21,32 +15,64 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
     <link rel="stylesheet" type="text/css"
-          href="<%=basePath%>css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
-
-    <title>Title</title>
+          href="/css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <script src="/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/jquery/jquery-3.5.1.js"></script>
+    <script src="/css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="/css/before/main.css" rel="stylesheet"/>
+    <link href="/css/before/carousel.css" rel="stylesheet"/>
 </head>
 <body>
-    <c:if test="${bruser!=null}">欢迎${bruser.bemail}</c:if>
-    <c:if test="${bruser==null}"><a href="toLogin" >登录</a></c:if>
-    <a href="toRegister">注册</a>
-    |<a href="userCenter">用户中心</a>|
-    <c:if test="${bruser!=null}">
-        <a href="user/exit">退出</a>
-    </c:if>
-<form action="search" name="myForm" method="post">
-    <input type="text" name="mykey" class="txt" value="请输入您要查询的内容" onfocus="clearValue()"/>
-    <input type="submit" value="搜索"/>
-</form>
-<ul>
-    <li><a href="before?id=0">首页</a> </li>
-    <c:forEach items="${goodsType}" var="type">
-        <li><a href="before?id=${type.id}">${type.typename}</a> </li>
-    </c:forEach>
-    <li><a href="cart/selectCart">购物车</a> </li>
-</ul>
+<div style="display: flex;flex-wrap: wrap;align-items: center;width: 1400px;height:auto;margin: 0 auto;justify-content: space-between">
+    <div class="navbar-wrapper" style="margin-top: 0px;">
+        <div class="container" style="padding: 0;margin: 0 auto;width: 1400px">
+
+            <nav class="navbar navbar-inverse navbar-static-top"
+                 style="display: flex;flex-wrap: wrap;align-items: center;width: 1400px">
+                <div class="container" style="width: 500px">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Ecommerce</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">主页</a></li>
+                            <li><a href="#">个人中心</a></li>
+                            <li><a href="#">收藏夹</a></li>
+                            <li><a href="#">购物车</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container">
+                    <form class="navbar-form navbar-right">
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <input type="text" class="form-control" placeholder="Search"/>
+                                <button class="btn btn-default" style="border: none;border-bottom: 1px">搜索</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="navbar-header">
+                    <c:if test="${sessionScope.buser != null}">
+                        <a class="navbar-brand" href="#" style="float: right">${sessionScope.buser.bemail}</a>
+                    </c:if>
+                    <c:if test="${sessionScope.buser == null}">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Action <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="before/toLogin">登录</a></li>
+                                <li><a href="before/toPageBeforeRegister">注册</a></li>
+                            </ul>
+                        </div>
+                    </c:if>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
 </body>
 </html>

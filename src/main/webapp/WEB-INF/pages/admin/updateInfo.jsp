@@ -16,26 +16,37 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
     <link rel="stylesheet" type="text/css"
-          href="css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
-    <link rel="stylesheet" type="text/css" href="css/admin/dashboard.css">
+          href="/css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <script src="/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/jquery/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
+    <link rel="stylesheet" type="text/css" href="/css/admin/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="/css/admin/main.css">
     <style>
         input{outline: none}
         label{outline: none}
     </style>
 </head>
 <script>
+    function showMenu(id) {
+        $(".menu").hide().eq(id).css("display","block")
+    }
+
+    function hideMenu() {
+        $(".menu").hidden;
+    }
     $(document).ready(function () {
-        $(".btn-default:eq(1)").click(function () {
-            $(".form-horizontal").attr("action","adminGoods/deleteAGoods?id=${goods.id}")
-            return true;
-        })
-        $(".btn-default:eq(0)").click(function () {
-            $(".form-horizontal").attr("action","adminGoods/addGoods?updateAct=update")
-            return true;
-        })
+        if ($(".nav-sidebar li").mousemove(function () {
+            const id = $(this).index();
+            showMenu(id);
+        })) ;
+        if ($(".nav-sidebar li").mouseout(function () {
+            hideMenu();
+        })) ;
+        if(${not empty msg}){
+            alert(${msg})
+        }
     })
 </script>
 <body>
@@ -62,29 +73,47 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="adminGoods/selectGoods">商品管理</a></li>
+                <li class="active">
+                    <a href="adminGoods/selectGoods" >商品管理</a>
+                    <ul class="nav nav-sidebar menu" hidden >
+                        <li><a href="adminGoods/selectGoods">商品列表</a></li>
+                        <li><a href="adminGoods/toAddGoods">商品添加</a></li>
+                        <li><a href="adminGoods/selectGoods?act=deleteSelect">商品删除</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="adminNotice/selectGoods">公告管理</a>
+                    <ul class="nav nav-sidebar menu" hidden >
+                        <li><a href="adminGoods/selectNotices">公告列表</a></li>
+                        <li><a href="adminGoods/toAddGoods">公告添加</a></li>
+                    </ul>
+                </li>
                 <li><a href="adminType/toManagerType">类型管理</a></li>
                 <li><a href="adminUser/userInfo">用户管理</a></li>
                 <li><a href="adminOrder/orderInfo">订单管理</a></li>
-                <li><a href="adminNotice/noticeInfo">公告管理</a></li>
                 <li><a href="admin/exit">安全退出</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h2 class="sub-header">修改商品</h2>
-            <form:form class="form-horizontal" style="margin:0 auto;width: 550px" action=""
+            <h2 class="sub-header">修改个人信息</h2>
+            <form:form class="form-horizontal" style="margin:0 auto;width: 550px" action="admin/updateInfo"
                        method="post" modelAttribute="auser" enctype="multipart/form-data">
-                <form:input path="aname" value="${auser.aname}" />
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">名称<font color="red">*</font></label>
+                    <label class="col-sm-2 control-label">账号</label>
+                    <div class="col-sm-10">
+                        <form:input path="aname" value="${auser.aname}"   class="form-control-static" disabled="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">密码<font color="red">*</font></label>
                     <div class="col-sm-10">
                         <form:input path="apwd" value="${auser.apwd}" class="form-control-static"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"><input type="submit" class="btn btn-default">修改</input> </label>
+                    <label class="col-sm-2 control-label"><input type="submit" class="btn btn-default" value="提交"></input> </label>
                     <div class="col-sm-10">
-                        <p class="form-control-static"><input type="reset" class="btn btn-default">重置</p>
+                        <p class="form-control-static"><input type="reset" class="btn btn-default" value="重置"></p>
                     </div>
                 </div>
             </form:form>
@@ -93,10 +122,5 @@
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 </body>
 </html>

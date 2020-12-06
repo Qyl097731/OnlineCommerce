@@ -16,9 +16,9 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script src="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <link href="<%=basePath%>css/login.css" rel="stylesheet">
     <script>
         $(document).ready(function () {

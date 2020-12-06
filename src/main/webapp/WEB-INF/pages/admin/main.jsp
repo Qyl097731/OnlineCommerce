@@ -1,12 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
   User: asus
-  Date: 2020/11/3
-  Time: 21:40
-  To change this template use File | Settings | File Templates.
---%><%--
-  Created by IntelliJ IDEA.
-  User: asus
   Date: 2020/10/29
   Time: 23:30
   To change this template use File | Settings | File Templates.
@@ -20,19 +14,24 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+
     <base href="<%=basePath%>">
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
     <link rel="stylesheet" type="text/css"
-          href="css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
-    <link rel="stylesheet" type="text/css" href="css/admin/dashboard.css">
+          href="/css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <script src="/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/jquery/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
+    <link rel="stylesheet" type="text/css" href="/css/admin/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="/css/admin/main.css">
+
     <script>
+
         function showMenu(id) {
-            $(".dropdown-menu").hide().eq(id).css("display","block")
+            $(".menu").hide().eq(id).css("display", "block")
         }
 
-        function hideMenu(id) {
-            $(".dropdown-menu").eq(id).hide()
+        function hideMenu() {
+            $(".menu").hidden;
         }
 
         $(document).ready(function () {
@@ -40,11 +39,8 @@
                 const id = $(this).index();
                 showMenu(id);
             })) ;
-            if ($(".nav-sidebar li").mousemove(function () {
-                const id = $(this).index();
-
-
-                hideMenu(id);
+            if ($(".nav-sidebar li").mouseout(function () {
+                hideMenu();
             })) ;
         })
     </script>
@@ -75,16 +71,17 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li class="active">
-                    <a href="adminGoods/selectGoods">商品管理</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="adminGoods/selectGoods">商品管理</a></li>
+                    <a href="adminGoods/selectGoods" >商品管理</a>
+                    <ul class="nav nav-sidebar menu" hidden >
+                        <li><a href="adminGoods/selectGoods">商品列表</a></li>
                         <li><a href="adminGoods/toAddGoods">商品添加</a></li>
+                        <li><a href="adminGoods/selectGoods?act=deleteSelect">商品删除</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="adminGoods/selectGoods">公告管理</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="adminGoods/selectGoods">公告管理</a></li>
+                    <a href="adminNotice/selectGoods">公告管理</a>
+                    <ul class="nav nav-sidebar menu" hidden >
+                        <li><a href="adminGoods/selectNotices">公告列表</a></li>
                         <li><a href="adminGoods/toAddGoods">公告添加</a></li>
                     </ul>
                 </li>
@@ -102,7 +99,7 @@
                 </c:if>
                 <c:if test="${allGoods.size() != 0}">
                 <table border="1" bordercolor="PaleGreen">
-                    <table class="table table-striped">
+                    <table class="table table-striped" >
                         <thead>
                         <tr>
                             <th width="100px">ID</th>
@@ -156,10 +153,5 @@
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 </body>
 </html>

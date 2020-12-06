@@ -18,7 +18,7 @@ public interface IndexDao {
 
     ArrayList<FocusOrder> getFocusOrder();
 
-    Notice selectNotice();
+    ArrayList<FocusOrder> selectNotice();
 
     ArrayList<Goods> getLastedGoods(Goods goods);
 

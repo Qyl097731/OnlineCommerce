@@ -24,7 +24,7 @@
         from tb_goods g,tb_orderdetail od
         where g.id = od.goodstable_id
         group by g.id
-        order by shoppingnum desc limit 10;
+        order by shoppingnum desc limit 6
     </select>
     <!--  人气排行  -->
     <select id="getFocusOrder" resultType="com.qyl.instance.FocusOrder">
@@ -32,17 +32,22 @@
         from tb_goods g,tb_focus f
         where g.id = f.goodstable_id
         group by g.id,gname,grprice,gpicture
-        order by focusNum desc limit 10
+        order by focusNum desc limit 24
     </select>
     <!--    最新商品-->
     <select id="getLastedGoods" resultType="com.qyl.instance.Goods" parameterType="com.qyl.instance.Goods">
         select g.*,typename from tb_goods g,tb_goodstype t
         <where>
+            g.gtype_id = t.id
             <if test="id!=0">
-                g.gtype_id = t.id and t.id = #{goodstype_id}
+                and t.id = #{goodstype_id}
             </if>
         </where>
-        order by g.id desc limit 15
+        order by g.id desc limit 6
+    </select>
+
+    <select id="selectNotice" resultType="com.qyl.instance.Notice">
+        select * from tb_notice order by ntime desc
     </select>
 <!--    首页搜索    -->
     <select id="search" parameterType="String" resultType="com.qyl.instance.Goods">

@@ -90,6 +90,6 @@ public class AdminService {
         }else{
             model.addAttribute("修改失败");
         }
-        return "admin/main";
+        return "forward:/admin/toPageMain";
     }
 }

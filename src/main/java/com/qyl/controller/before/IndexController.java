@@ -14,9 +14,9 @@ import javax.servlet.http.HttpSession;
  * packageName: com.qyl.controller.before
  * date: 2020-11-08 19:53
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 @Controller
-
 public class IndexController extends BaseBeforeController{
     private final IndexService indexService;
     @Autowired

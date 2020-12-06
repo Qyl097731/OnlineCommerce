@@ -5,6 +5,7 @@
         select * from tb_auser where aname = #{aname}
     </select>
     <update id="updateInfo">
-        update tb_auser set apwd = #{apwd} where aname = #{aname}
+        update tb_auser set apwd = #{apwd}
+        where aname = #{aname}
     </update>
 </mapper>
