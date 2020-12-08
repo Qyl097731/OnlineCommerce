@@ -6,6 +6,7 @@ import com.qyl.dao.AdminNoticeDao;
 import com.qyl.instance.Goods;
 import com.qyl.instance.Notice;
 import com.qyl.util.MyUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -28,7 +29,7 @@ public class AdminNoticeService {
     private final String deleteNotice = "deleteNotice";
 
     private final AdminNoticeDao adminNoticeDao;
-
+    @Autowired
     public AdminNoticeService(AdminNoticeDao adminNoticeDao) {
         this.adminNoticeDao = adminNoticeDao;
     }
