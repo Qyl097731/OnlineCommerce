@@ -70,7 +70,7 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active">
+                <li>
                     <a href="adminGoods/selectGoods" >商品管理</a>
                     <ul class="nav nav-sidebar menu" hidden >
                         <li><a href="adminGoods/selectGoods">商品列表</a></li>
@@ -79,13 +79,14 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="adminNotice/selectGoods">公告管理</a>
+                    <a href="adminNotice/selectNotices">公告管理</a>
                     <ul class="nav nav-sidebar menu" hidden >
-                        <li><a href="adminGoods/selectNotices">公告列表</a></li>
-                        <li><a href="adminGoods/toAddGoods">公告添加</a></li>
+                        <li><a href="adminNotice/selectNotices">公告列表</a></li>
+                        <li><a href="adminNotice/toAddNotice">公告添加</a></li>
+                        <li><a href="adminNotice/selectNotice?act=deleteNotice">公告删除</a> </li>
                     </ul>
                 </li>
-                <li><a href="adminType/toManagerType">类型管理</a></li>
+                <li class="active"><a href="adminType/toManagerType">类型管理</a></li>
                 <li><a href="adminUser/userInfo">用户管理</a></li>
                 <li><a href="adminOrder/orderInfo">订单管理</a></li>
                 <li><a href="admin/exit">安全退出</a></li>

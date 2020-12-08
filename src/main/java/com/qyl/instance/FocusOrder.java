@@ -5,6 +5,7 @@ package com.qyl.instance;
  * packageName: com.qyl.instance
  * date: 2020-11-10 11:16
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 public class FocusOrder {
     private Integer id;
@@ -12,6 +13,27 @@ public class FocusOrder {
     private String gname;
     private Double grprice;
     private String gpicture;
+    private String description;
+
+    @Override
+    public String toString() {
+        return "FocusOrder{" +
+                "id=" + id +
+                ", focusNum=" + focusNum +
+                ", gname='" + gname + '\'' +
+                ", grprice=" + grprice +
+                ", gpicture='" + gpicture + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Integer getId() {
         return id;
@@ -53,14 +75,4 @@ public class FocusOrder {
         this.gpicture = gpicture;
     }
 
-    @Override
-    public String toString() {
-        return "FocusOrder{" +
-                "id=" + id +
-                ", focusNum=" + focusNum +
-                ", gname='" + gname + '\'' +
-                ", grprice=" + grprice +
-                ", gpicture='" + gpicture + '\'' +
-                '}';
-    }
 }

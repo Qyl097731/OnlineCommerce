@@ -87,10 +87,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="adminNotice/selectGoods">公告管理</a>
+                    <a href="adminNotice/selectNotices">公告管理</a>
                     <ul class="nav nav-sidebar menu" hidden >
-                        <li><a href="adminGoods/selectNotices">公告列表</a></li>
-                        <li><a href="adminGoods/toAddGoods">公告添加</a></li>
+                        <li><a href="adminNotice/selectNotices">公告列表</a></li>
+                        <li><a href="adminNotice/toAddNotice">公告添加</a></li>
+                        <li><a href="adminNotice/selectNotices?act=deleteNotice">公告删除</a> </li>
                     </ul>
                 </li>
                 <li><a href="adminType/toManagerType">类型管理</a></li>

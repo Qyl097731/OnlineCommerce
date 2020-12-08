@@ -17,6 +17,7 @@ import java.util.ArrayList;
  * packageName: com.qyl.controller.before
  * date: 2020-11-12 16:37
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 @Service
 public class UserService {
@@ -88,7 +89,7 @@ public class UserService {
             model.addAttribute("passwordError", "密码错误");
             return "before/login";
         }
-        session.setAttribute("buser",buser);
+        session.setAttribute("buser",ruser);
         return "forward:/before";
     }
 }

@@ -31,7 +31,7 @@ public class UserCenterDaoTest {
     }
 
     @Test
-    public void oderDetail() {
-        System.out.println(userCenterDao.oderDetail(1));
+    public void orderDetail() {
+        System.out.println(userCenterDao.orderDetail(1));
     }
 }

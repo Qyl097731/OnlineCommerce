@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <%--
   Created by IntelliJ IDEA.
   User: asus
@@ -16,6 +15,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <base href="<%=basePath%>">
+    <link rel="stylesheet" type="text/css"
+          href="/css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <script src="/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/jquery/jquery-3.5.1.js"></script>
+    <script src="/css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="/css/before/main.css" rel="stylesheet"/>
+    <link href="/css/before/carousel.css" rel="stylesheet"/>
     <script>
         $('#myCarousel').carousel({
             interval: 2000
@@ -47,16 +55,16 @@
         <div class="carousel-inner" role="listbox" style="width: 1140px;">
             <div class="item active" style="width: 1140px;text-align: center">
                 <img class="first-slide"
-                     src="https://aecpm.alicdn.com/imgextra/i3/3327042818/O1CN01841OGv1WggkqF55oW_!!3327042818-0-alimamazszw.jpg"
-                     alt="First slide">
+                     src="/logos/${noticelist[0].npicture}"
+                     alt="First slide" style="cursor: pointer">
                 <div class="container" style="text-align: center">
                     <div class="carousel-caption">
                     </div>
                 </div>
             </div>
             <div class="item">
-                <img class="second-slide" src="https://aecpm.alicdn.com/simba/img/TB12NW9kH1YBuNjSszhSuwUsFXa.jpg"
-                     alt="Second slide">
+                <img class="second-slide" src="/logos/${noticelist[1].npicture}"
+                     alt="Second slide" style="cursor: pointer">
                 <div class="container">
                     <div class="carousel-caption">
                         <!--          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>-->
@@ -65,8 +73,8 @@
             </div>
             <div class="item">
                 <img class="third-slide"
-                     src="https://aecpm.alicdn.com/imgextra/i2/1740894788/O1CN011zMouL1lEx078AmiM_!!1740894788-0-alimamazszw.jpg"
-                     alt="Third slide">
+                     src="/logos/${noticelist[2].npicture}"
+                     alt="Third slide" style="cursor: pointer">
                 <div class="container">
                     <div class="carousel-caption">
                         <!--          <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>-->
@@ -87,50 +95,80 @@
 
 <div class="container marketing" style="width: 1400px;">
 
-    <!-- Three columns of text below the carousel -->
     <div class="row" style="display: flex;flex-wrap: wrap;flex: 1">
         <div style="width: 1300px;border-bottom: 1px solid #767676; margin-bottom: 20px">
             <h1>新品推荐</h1>
         </div>
-        <c:forEach items="${lastedlist}" var="goods">
-            <div class="col-lg-4">
-                <img class="img-thumbnail" src="logos/${goods.gpicture}"
-                     alt="goods image" width="180" height="180" onclick="window.location='goodsDetail?id=${goods.id}'">
-                <h4>${goods.gname}</h4>
-                <p>${goods.description}</p>
-                <p><a class="btn btn-default" href="goodsDetail?id=${goods.id}" role="button">View details &raquo;</a></p>
+        <c:if test="${lastedlist.size() > 0}">
+            <c:forEach items="${lastedlist}" var="goods">
+                <div class="col-lg-4">
+                    <img class="img-thumbnail" src="logos/${goods.gpicture}"
+                         alt="goods image" width="180" height="180" style="cursor: pointer"
+                         onclick="window.location='goodsDetail?id=${goods.id}'">
+                    <h4>${goods.gname}</h4>
+                    <p>${goods.description}</p>
+                    <p><a class="btn btn-default" href="goodsDetail?id=${goods.id}" role="button">View details
+                        &raquo;</a></p>
+                </div>
+                <!-- /.col-lg-4 -->
+            </c:forEach>
+        </c:if>
+        <c:if test="${lastedlist.size() == 0}">
+            <div class="col-lg-12">
+                暂时没上新。
             </div>
-            <!-- /.col-lg-4 -->
-        </c:forEach>
+        </c:if>
     </div>
 
     <div class="row" style="display: flex;flex-wrap: wrap;flex: 1">
         <div style="width: 1300px;border-bottom: 1px solid #767676; margin-bottom: 20px">
             <h1>热门推荐</h1>
         </div>
-        <c:forEach items="${salelist}" var="goods">
-            <div class="col-lg-2" >
-                <img class="img-thumbnail" src="/logos/${goods.gpicture}"
-                     alt="goods image" width="180" height="180" onclick="window.location='goodsDetail?id=${goods.id}'">
-                <h4>${goods.gname}</h4>
-                <p>${goods.description}</p>
-                <p><a class="btn btn-default" href="goodsDetail?id=${goods.id}" role="button">View details &raquo;</a></p>
+        <c:if test="${salelist.size() == 0}">
+            <div class="col-lg-12">
+                暂时没有热销产品。
             </div>
-        </c:forEach>
+
+        </c:if>
+        <c:if test="${salelist.size() > 0}">
+            <c:forEach items="${salelist}" var="goods">
+                <div class="col-lg-3" style="text-align: center">
+                    <img class="img-thumbnail" src="/logos/${goods.gpicture}"
+                         alt="goods image" width="180" height="180" style="cursor: pointer"
+                         onclick="window.location='goodsDetail?id=${goods.id}'">
+                    <h4>${goods.gname}</h4>
+                    <p>${goods.description}</p>
+                    <p><a class="btn btn-default" href="goodsDetail?id=${goods.id}" role="button">View details
+                        &raquo;</a>
+                    </p>
+                </div>
+            </c:forEach>
+        </c:if>
     </div>
+
     <div class="row" style="display: flex;flex-wrap: wrap;flex: 1">
         <div style="width: 1300px;border-bottom: 1px solid #767676; margin-bottom: 20px">
             <h1>猜你喜欢</h1>
         </div>
-        <c:forEach items="${focuslist}" var="goods">
-            <div class="col-lg-2" >
-                <img class="img-thumbnail" src="/logos/${goods.gpicture}"
-                     alt="goods image" width="180" height="180" onclick="window.location='goodsDetail?id=${goods.id}'">
-                <h4>${goods.gname}</h4>
-                <p>${goods.description}</p>
-                <p><a class="btn btn-default" href="goodsDetail?id=${goods.id}" role="button">View details &raquo;</a></p>
+
+        <c:if test="${focuslist.size() == 0}">
+            <div class="col-lg-12">
+              暂时没有推荐。
             </div>
-        </c:forEach>
+        </c:if>
+        <c:if test="${focuslist.size() > 0}">
+            <c:forEach items="${focuslist}" var="goods">
+                <div class="col-lg-4" style="text-align: center">
+                    <img class="img-thumbnail" src="/logos/${goods.gpicture}"
+                         alt="goods image" width="180" height="180" style="cursor: pointer"
+                         onclick="window.location='goodsDetail?id=${goods.id}'">
+                    <h4>${goods.gname}</h4>
+                    <p>${goods.description}</p>
+                    <p><a class="btn btn-default" href="goodsDetail?id=${goods.id}" role="button">View details
+                        &raquo;</a></p>
+                </div>
+            </c:forEach>
+        </c:if>
     </div>
 
     <hr class="featurette-divider">

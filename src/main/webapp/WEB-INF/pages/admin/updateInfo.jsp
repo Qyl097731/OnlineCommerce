@@ -73,7 +73,7 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active">
+                <li>
                     <a href="adminGoods/selectGoods" >商品管理</a>
                     <ul class="nav nav-sidebar menu" hidden >
                         <li><a href="adminGoods/selectGoods">商品列表</a></li>
@@ -82,10 +82,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="adminNotice/selectGoods">公告管理</a>
+                    <a href="adminNotice/selectNotices">公告管理</a>
                     <ul class="nav nav-sidebar menu" hidden >
-                        <li><a href="adminGoods/selectNotices">公告列表</a></li>
-                        <li><a href="adminGoods/toAddGoods">公告添加</a></li>
+                        <li><a href="adminNotice/selectNotices">公告列表</a></li>
+                        <li><a href="adminNotice/toAddNotice">公告添加</a></li>
+                        <li><a href="adminNotice/selectNotices?act=deleteNotice">公告删除</a> </li>
                     </ul>
                 </li>
                 <li><a href="adminType/toManagerType">类型管理</a></li>
@@ -101,7 +102,8 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">账号</label>
                     <div class="col-sm-10">
-                        <form:input path="aname" value="${auser.aname}"   class="form-control-static" disabled="true"/>
+                        <form:input path="aname" value="${auser.aname}"   class="form-control-static" cssStyle="display: none"/>
+                        <input type="text" class="form-control-static" disabled value="${auser.aname}"/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -111,7 +113,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"><input type="submit" class="btn btn-default" value="提交"></input> </label>
+                    <label class="col-sm-2 control-label"><input type="submit" class="btn btn-default" value="提交"/> </label>
                     <div class="col-sm-10">
                         <p class="form-control-static"><input type="reset" class="btn btn-default" value="重置"></p>
                     </div>

@@ -26,10 +26,10 @@
 <body>
 <jsp:include page="head.jsp"/>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h2 class="sub-header">商品列表</h2>
+    <h2 class="sub-header">购物车列表</h2>
     <div class="table-responsive">
         <c:if test="${cartList.size() == 0}">
-            商品为空。
+            购物车为空。
         </c:if>
         <c:if test="${cartList.size() != 0}">
             <table class="table" style="width: 1400px">
@@ -40,6 +40,7 @@
                     <th width="50px"></th>
                     <th width="200px">图片</th>
                     <th width="100px">小计</th>
+                    <th width="100px">删除</th>
                 </tr>
                 </thead>
                 <tbody id="showItem" class="showItem">
@@ -50,17 +51,13 @@
                         <td></td>
                         <td><img src="logos/${cart.gpicture}" width="100px" height="100px" alt="公告图片"/></td>
                         <td style="padding-top: 50px">${cart.smallSum}</td>
+                        <td style="padding-top: 50px"><a href="cart/deleteAGoods?id=${cart.id}">删除</a></td>
                     </tr>
                 </c:forEach>
-                <tr>
-                    <td colspan="4"></td>
-                    <td>合计${total}元</td>
-                </tr>
-
                 </tbody>
             </table>
+            <div style="text-align: center;width: 1400px"><a href="before" class="btn btn-success">看看其他</a>&nbsp;<a href="orderConfirm" class="btn btn-success ">去结算</a></div>
         </c:if>
-        <div style="width: 1400px;text-align: center"><a href="before" class="btn btn-success">看看其他</a>&nbsp;<a href="orderSubmit?amount=${total}" class="btn btn-success ">确认订单</a></div>
     </div>
 </div>
 </body>

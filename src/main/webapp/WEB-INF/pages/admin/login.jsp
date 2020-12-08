@@ -18,8 +18,8 @@
     <base href="<%=basePath%>">
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
-    <script src="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <link href="<%=basePath%>css/login.css" rel="stylesheet">
+    <script src="/css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href="/css/login.css" rel="stylesheet">
     <script>
         $(document).ready(function () {
             $("#code").click(function () {

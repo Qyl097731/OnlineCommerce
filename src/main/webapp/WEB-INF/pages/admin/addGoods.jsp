@@ -85,10 +85,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="adminNotice/selectGoods">公告管理</a>
+                    <a href="adminNotice/selectNotices">公告管理</a>
                     <ul class="nav nav-sidebar menu" hidden >
-                        <li><a href="adminGoods/selectNotices">公告列表</a></li>
-                        <li><a href="adminGoods/toAddGoods">公告添加</a></li>
+                        <li><a href="adminNotice/selectNotices">公告列表</a></li>
+                        <li><a href="adminNotice/toAddNotice">公告添加</a></li>
+                        <li><a href="adminNotice/selectNotices?act=deleteNotice">公告删除</a> </li>
                     </ul>
                 </li>
                 <li><a href="adminType/toManagerType">类型管理</a></li>
@@ -98,7 +99,7 @@
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h2 class="sub-header">修改商品</h2>
+            <h2 class="sub-header">增加商品</h2>
             <form:form class="form-horizontal" style="margin:0 auto;width: 550px" action="adminGoods/addGoods"
                        method="post" modelAttribute="goods" enctype="multipart/form-data">
                 <form:input path="id" cssStyle="display: none"/>

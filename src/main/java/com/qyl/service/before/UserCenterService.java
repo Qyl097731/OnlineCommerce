@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * projectName:  e-commerce
@@ -23,14 +25,25 @@ public class UserCenterService {
         this.userCenterDao = userCenterDao;
     }
 
-    public String userCenter(HttpSession session, Model model) {
+    public String myOrder(HttpSession session, Model model) {
         model.addAttribute("myOrder",userCenterDao.myOrder(MyUtil.getUserID(session)));
+        return "before/orderList";
+    }
+
+    public String myFocus(HttpSession session, Model model) {
         model.addAttribute("myFocus",userCenterDao.myFocus(MyUtil.getUserID(session)));
-        return "before/userCenter";
+        return "before/focusList";
+    }
+    public String deleteAFocus(Integer id, HttpSession session) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("uid",MyUtil.getUserID(session));
+        map.put("gid",id);
+        userCenterDao.deleteAFocus(map);
+        return "forward:/myFocus";
     }
 
     public String orderDetail(Model model, Integer orderSn) {
-        model.addAttribute("myOrderDetail",userCenterDao.oderDetail(orderSn));
+        model.addAttribute("myOrderDetail",userCenterDao.orderDetail(orderSn));
         return "before/userOrderDetail";
     }
 }

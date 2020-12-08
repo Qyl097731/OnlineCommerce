@@ -63,14 +63,18 @@ public class AdminService {
             model.addAttribute("anameError","用户不存在");
             return "admin/login";
         }
-        if(auser1.getApwd().equals(auser.getApwd()) == false){
+        if(!auser1.getApwd().equals(auser.getApwd()) ){
             model.addAttribute("asuer",auser) ;
             model.addAttribute("passwordError","密码错误");
             return "admin/login";
         }
         return "admin/login";
     }
-
+    public String toUpdateInfo(Model model,HttpSession session){
+        Auser auser = (Auser)session.getAttribute("auser");
+        model.addAttribute("auser",adminDao.selectAuserByAname(auser.getAname()));
+        return "admin/updateInfo";
+    }
     public String toPageMain(Model model) {
         PageHelper.startPage(1, 10);
         ArrayList<Goods> allGoods = adminGoodsDao.selectGoods();
@@ -86,10 +90,10 @@ public class AdminService {
 
     public String updateInfo(Model model, Auser auser) {
         if(adminDao.updateInfo(auser) > 1){
-            model.addAttribute("修改成功");
+            model.addAttribute("msg","修改成功");
         }else{
-            model.addAttribute("修改失败");
+            model.addAttribute("msg","修改失败");
         }
-        return "forward:/admin/toPageMain";
+        return "forward:/admin/toUpdateInfo";
     }
 }

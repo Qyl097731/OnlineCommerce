@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: asus
-  Date: 2020/10/29
-  Time: 16:18
+  Date: 2020/12/8
+  Time: 0:56
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
@@ -19,16 +19,15 @@
           href="/css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
     <script src="/jquery/jquery-3.5.1.min.js"></script>
     <script src="/jquery/jquery-3.5.1.js"></script>
-    <script src="/css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <!-- Custom styles for this template -->
-    <link href="/css/before/main.css" rel="stylesheet"/>
-    <link href="/css/before/carousel.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
+    <link rel="stylesheet" type="text/css" href="/css/admin/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="/css/admin/main.css">
+    <script>
+        alert("订单生成成功")
+    </script>
 </head>
 <body>
-<a href="before/toLogin">登录</a>
-<a href="before/toPageBeforeRegister">注册</a>
-
-</div>
-
+<jsp:include page="head.jsp"/>
+<div style="width: 1400px;text-align: center;margin: 20px auto"><a href="before" class="btn btn-success">看看其他</a>&nbsp;<a href="pay?orderSn=${orderSn}" class="btn btn-success">立即付款</a> </div>
 </body>
 </html>

@@ -14,6 +14,29 @@ public class SaleOrder {
     private Integer gstore;
     private String gpicture;
     private Integer shoppingnum;
+    private String description;
+
+    @Override
+    public String toString() {
+        return "SaleOrder{" +
+                "id=" + id +
+                ", gname='" + gname + '\'' +
+                ", goprice=" + goprice +
+                ", grprice=" + grprice +
+                ", gstore=" + gstore +
+                ", gpicture='" + gpicture + '\'' +
+                ", shoppingnum=" + shoppingnum +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Integer getId() {
         return id;
@@ -71,16 +94,4 @@ public class SaleOrder {
         this.shoppingnum = shoppingnum;
     }
 
-    @Override
-    public String toString() {
-        return "SaleOrder{" +
-                "id=" + id +
-                ", gname='" + gname + '\'' +
-                ", goprice=" + goprice +
-                ", grprice=" + grprice +
-                ", gstore=" + gstore +
-                ", gpicture='" + gpicture + '\'' +
-                ", shoppingnum=" + shoppingnum +
-                '}';
-    }
 }

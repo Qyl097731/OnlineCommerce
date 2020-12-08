@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  * @author 邱依良
  */
 @Controller
-public class IndexController extends BaseBeforeController{
+public class IndexController{
     private final IndexService indexService;
     @Autowired
     public IndexController(IndexService indexService) {

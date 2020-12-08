@@ -12,6 +12,27 @@ public class Focus {
     private Integer id;
     private Integer goodstable_id;
     private Integer busertable_id;
+    private String gpicture;
+
+    @Override
+    public String toString() {
+        return "Focus{" +
+                "id=" + id +
+                ", goodstable_id=" + goodstable_id +
+                ", busertable_id=" + busertable_id +
+                ", gpicture='" + gpicture + '\'' +
+                ", focustime=" + focustime +
+                '}';
+    }
+
+    public String getGpicture() {
+        return gpicture;
+    }
+
+    public void setGpicture(String gpicture) {
+        this.gpicture = gpicture;
+    }
+
     private Timestamp focustime;
 
     public Integer getId() {
@@ -46,13 +67,4 @@ public class Focus {
         this.focustime = focustime;
     }
 
-    @Override
-    public String toString() {
-        return "Focus{" +
-                "id=" + id +
-                ", goodstable_id=" + goodstable_id +
-                ", busertable_id=" + busertable_id +
-                ", focustime=" + focustime +
-                '}';
-    }
 }

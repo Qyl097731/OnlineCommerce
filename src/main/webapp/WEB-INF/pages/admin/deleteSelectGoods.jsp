@@ -82,18 +82,19 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li class="active">
-                    <a href="adminGoods/selectGoods">商品管理</a>
-                    <ul class="nav nav-sidebar menu" hidden>
+                    <a href="adminGoods/selectGoods" >商品管理</a>
+                    <ul class="nav nav-sidebar menu" hidden >
                         <li><a href="adminGoods/selectGoods">商品列表</a></li>
                         <li><a href="adminGoods/toAddGoods">商品添加</a></li>
                         <li><a href="adminGoods/selectGoods?act=deleteSelect">商品删除</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="adminNotice/selectGoods">公告管理</a>
-                    <ul class="nav nav-sidebar menu" hidden>
-                        <li><a href="adminGoods/selectNotices">公告列表</a></li>
-                        <li><a href="adminGoods/toAddGoods">公告添加</a></li>
+                    <a href="adminNotice/selectNotices">公告管理</a>
+                    <ul class="nav nav-sidebar menu" hidden >
+                        <li><a href="adminNotice/selectNotices">公告列表</a></li>
+                        <li><a href="adminNotice/toAddNotice">公告添加</a></li>
+                        <li><a href="adminNotice/selectNotices?act=deleteNotice">公告删除</a> </li>
                     </ul>
                 </li>
                 <li><a href="adminType/toManagerType">类型管理</a></li>
@@ -115,6 +116,7 @@
                         <tr>
                             <th width="100px">ID</th>
                             <th width="200px">名称</th>
+                            <th width="50px"></th>
                             <th width="200px">现价</th>
                             <th width="200px">原价</th>
                             <th width="100px">库存</th>
@@ -125,6 +127,7 @@
                             <tr>
                                 <td><input type="checkbox" class="ids" name="ids" value="${goods.id}">${goods.id}</td>
                                 <td>${goods.gname}</td>
+                                <td></td>
                                 <td>${goods.grprice}</td>
                                 <td>${goods.goprice}</td>
                                 <td>${goods.gstore}</td>
@@ -132,7 +135,7 @@
                         </c:forEach>
 
                         <tr>
-                            <td colspan="2">
+                            <td colspan="3">
                                 <span>
                                     共${total}条记录&nbsp;&nbsp;
                                     共${info.pages}页&nbsp;&nbsp;

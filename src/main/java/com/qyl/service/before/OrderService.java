@@ -21,6 +21,7 @@ import java.util.Map;
  * packageName: com.qyl.service.before
  * date: 2020-11-24 10:13
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 @Service
 public class OrderService {
@@ -53,6 +54,7 @@ public class OrderService {
         }
         //清空购物车
         orderDao.clear(MyUtil.getUserID(session));
+        System.out.println(order.getId());
         model.addAttribute("orderSn",order.getId());
         return "before/orderDone";
     }
@@ -62,4 +64,8 @@ public class OrderService {
         return "before/payDone";
     }
 
+    public String updateOrderStatue(Integer orderSn) {
+        orderDao.updateOrderStatue(orderSn);
+        return "forward:/myOrder";
+    }
 }

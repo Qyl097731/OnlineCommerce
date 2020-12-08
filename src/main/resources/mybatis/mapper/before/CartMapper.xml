@@ -3,7 +3,7 @@
 <mapper namespace="com.qyl.dao.CartDao">
 <!--    关注商品   -->
     <insert id="focus" parameterType="map">
-        insert into tb_focus(goodstable_id,busertable_id,focustime) values(#{gid},#{uid},now())
+        insert into tb_focus(goodstable_id,busertable_id,gpicture,focustime) values(#{gid},#{uid},#{gpicture},now())
     </insert>
 <!--    是否已经关注  -->
     <select id="isFocus" parameterType="map" resultType="map">

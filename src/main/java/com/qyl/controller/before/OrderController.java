@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
  * packageName: com.qyl.controller.before
  * date: 2020-11-24 10:13
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 @Controller
 public class OrderController extends BaseBeforeController{
@@ -57,5 +58,9 @@ public class OrderController extends BaseBeforeController{
         * @Date: 2020/11/24
         */
         return orderService.pay(orderSn);
+    }
+    @RequestMapping("/updateOrderStatue")
+    public String updateOrderStatue(Integer orderSn) {
+        return orderService.updateOrderStatue(orderSn);
     }
 }

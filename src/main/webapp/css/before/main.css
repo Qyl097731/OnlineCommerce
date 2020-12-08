@@ -1,2 +1,14 @@
 
 body{min-width: auto}
+
+.main-title{
+    width: 400px;
+    min-height: 21px;
+    _height: 21px;
+    font-weight: 700;
+    line-height: 21px;
+    color: #3C3C3C;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+

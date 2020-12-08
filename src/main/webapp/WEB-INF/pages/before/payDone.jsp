@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: asus
-  Date: 2020/11/8
-  Time: 18:18
+  Date: 2020/12/7
+  Time: 22:35
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
@@ -14,7 +14,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-
     <base href="<%=basePath%>">
     <link rel="stylesheet" type="text/css"
           href="/css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
@@ -24,26 +23,11 @@
     <link rel="stylesheet" type="text/css" href="/css/admin/dashboard.css">
     <link rel="stylesheet" type="text/css" href="/css/admin/main.css">
     <script>
-        function showMenu(id) {
-            $(".menu").hide().eq(id).css("display","block")
-        }
-
-        function hideMenu() {
-            $(".menu").hidden;
-        }
-        $(document).ready(function () {
-            if ($(".nav-sidebar li").mousemove(function () {
-                const id = $(this).index();
-                showMenu(id);
-            })) ;
-            if ($(".nav-sidebar li").mouseout(function () {
-                hideMenu();
-            })) ;
-        })
+        alert("付款成功")
     </script>
-    <title>Title</title>
 </head>
 <body>
-
+<jsp:include page="head.jsp"/>
+<div style="width: 1400px;text-align: center;margin: 20px auto"><a href="before" class="btn btn-success">看看其他</a> </div>
 </body>
 </html>

@@ -23,4 +23,6 @@ public interface OrderDao {
     void clear(Integer uid);
 
     void pay(Integer orderSn);
+
+    void updateOrderStatue(Integer orderSn);
 }

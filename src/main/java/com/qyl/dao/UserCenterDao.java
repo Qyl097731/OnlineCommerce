@@ -14,5 +14,7 @@ public interface UserCenterDao {
 
     ArrayList<Map<String,Object>> myFocus(Integer uid);
 
-    Map<String,Object> oderDetail(Integer orderSn);
+    Map<String,Object> orderDetail(Integer orderSn);
+
+    void deleteAFocus(Map<String, Object> map);
 }

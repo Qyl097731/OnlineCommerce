@@ -45,6 +45,10 @@
     </delete>
 <!--    支付订单    -->
     <update id="pay" parameterType="Integer">
-        update tb_orderbase set status = 1 where busertable_id = #{orderSn}
+        update tb_orderbase set status = 1 where id = #{orderSn}
+    </update>
+
+    <update id="updateOrderStatue" parameterType="Integer">
+        update tb_orderbase set status = 1 where id = #{orderSn}
     </update>
 </mapper>

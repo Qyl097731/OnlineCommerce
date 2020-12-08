@@ -1,5 +1,6 @@
 package com.qyl.controller.before;
 
+import com.qyl.instance.Auser;
 import com.qyl.instance.Buser;
 import com.qyl.service.before.IndexService;
 import com.qyl.service.before.UserService;
@@ -47,5 +48,17 @@ public class UserController {
     @RequestMapping("/login")
     public String login(@ModelAttribute("buser") Buser buser,Model model,HttpSession session,String code){
         return userService.login(buser,model,session,code);
+    }
+    @RequestMapping("/exit")
+    public String exit(HttpSession session){
+        /*
+         * @Description: 删除session会话 返回登陆界面
+         * @Param: [auser, session]
+         * @return: java.lang.String
+         * @Author: Mr.Qiu
+         * @Date: 2020/11/26
+         */
+        session.invalidate();
+        return "forward:/before";
     }
 }

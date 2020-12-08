@@ -51,7 +51,11 @@ public class IndexService {
 
     public String goodsDetail(Model model, Integer id) {
         Goods goods = indexDao.selectGoodsById(id);
+        Integer focusNum = indexDao.getFocusNum(id);
+        Integer saleNum = indexDao.getSaleNum(id);
         model.addAttribute("goods",goods);
+        model.addAttribute("focusNum",focusNum);
+        model.addAttribute("saleNum",saleNum);
         return "before/goodsDetail";
     }
 

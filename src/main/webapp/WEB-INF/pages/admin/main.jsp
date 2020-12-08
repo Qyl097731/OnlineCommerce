@@ -79,10 +79,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="adminNotice/selectGoods">公告管理</a>
+                    <a href="adminNotice/selectNotices">公告管理</a>
                     <ul class="nav nav-sidebar menu" hidden >
-                        <li><a href="adminGoods/selectNotices">公告列表</a></li>
-                        <li><a href="adminGoods/toAddGoods">公告添加</a></li>
+                        <li><a href="adminNotice/selectNotices">公告列表</a></li>
+                        <li><a href="adminNotice/toAddNotice">公告添加</a></li>
+                        <li><a href="adminNotice/selectNotices?act=deleteNotice">公告删除</a> </li>
                     </ul>
                 </li>
                 <li><a href="adminType/toManagerType">类型管理</a></li>
@@ -104,10 +105,11 @@
                         <tr>
                             <th width="100px">ID</th>
                             <th width="200px">名称</th>
+                            <th width="50px"></th>
                             <th width="200px">现价</th>
                             <th width="200px">原价</th>
                             <th width="100px">库存</th>
-                            <th width="200px">详情</th>
+                            <th width="100px">详情</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -115,6 +117,7 @@
                         <tr>
                             <td>${goods.id}</td>
                             <td>${goods.gname}</td>
+                            <td></td>
                             <td>${goods.grprice}</td>
                             <td>${goods.goprice}</td>
                             <td>${goods.gstore}</td>
@@ -122,7 +125,7 @@
                         </tr>
                         </c:forEach>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="3">
                                 <span>
                                     共${total}条记录&nbsp;&nbsp;
                                     共${info.pages}页&nbsp;&nbsp;

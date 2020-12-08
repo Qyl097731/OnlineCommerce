@@ -63,8 +63,7 @@ public class AdminController {
         * @Author: Mr.Qiu
         * @Date: 2020/12/1
         */
-        model.addAttribute((Auser)session.getAttribute("auser"));
-        return "admin/updateInfo";
+        return adminService.toUpdateInfo(model,session);
     }
     @RequestMapping("/updateInfo")
     public String updateInfo(Model model,Auser auser){

@@ -1,6 +1,7 @@
 package com.qyl.service.before;
 
 import com.qyl.dao.CartDao;
+import com.qyl.dao.IndexDao;
 import com.qyl.util.MyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +21,11 @@ import java.util.List;
  */
 @Service
 public class CartService {
+    private final IndexDao indexDao;
     private final CartDao cartDao;
     @Autowired
-    public CartService(CartDao cartDao) {
+    public CartService(IndexDao indexDao, CartDao cartDao) {
+        this.indexDao = indexDao;
         this.cartDao = cartDao;
     }
 
@@ -30,6 +33,7 @@ public class CartService {
         Map<String ,Object> map = new HashMap<>();
         map.put("uid", MyUtil.getUserID(session));
         map.put("gid",id);
+        map.put("gpicture",indexDao.selectGoodsById(id).getGpicture());
         List<Map<String,Object> >list = cartDao.isFocus(map);
         if(list.size() > 0){
             model.addAttribute("msg","已关注该商品");

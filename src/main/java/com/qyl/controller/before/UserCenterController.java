@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
  * packageName: com.qyl.controller.before
  * date: 2020-11-24 13:06
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 @Controller
 public class UserCenterController extends BaseBeforeController{
@@ -22,11 +23,19 @@ public class UserCenterController extends BaseBeforeController{
         this.userCenterService = userCenterService;
     }
 
-    @RequestMapping("/userCenter")
-    public String userCenter(HttpSession session, Model model){
-        return userCenterService.userCenter(session,model);
+    @RequestMapping("/myFocus")
+    public String myFocus(HttpSession session, Model model){
+        return userCenterService.myFocus(session,model);
     }
 
+    @RequestMapping("/myOrder")
+    public String myOrder(HttpSession session, Model model){
+        return userCenterService.myOrder(session,model);
+    }
+    @RequestMapping("/deleteAFocus")
+    public String deleteAFocus(Integer id,HttpSession session){
+        return userCenterService.deleteAFocus(id,session);
+    }
     @RequestMapping("/orderDetail")
     public String orderDetail(Model model,Integer orderSn){
         return userCenterService.orderDetail(model,orderSn);

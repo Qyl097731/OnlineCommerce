@@ -76,7 +76,7 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active">
+                <li>
                     <a href="adminGoods/selectGoods" >商品管理</a>
                     <ul class="nav nav-sidebar menu" hidden >
                         <li><a href="adminGoods/selectGoods">商品列表</a></li>
@@ -85,23 +85,24 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="adminNotice/selectGoods">公告管理</a>
+                    <a href="adminNotice/selectNotices">公告管理</a>
                     <ul class="nav nav-sidebar menu" hidden >
-                        <li><a href="adminGoods/selectNotices">公告列表</a></li>
-                        <li><a href="adminGoods/toAddGoods">公告添加</a></li>
+                        <li><a href="adminNotice/selectNotices">公告列表</a></li>
+                        <li><a href="adminNotice/toAddNotice">公告添加</a></li>
+                        <li><a href="adminNotice/selectNotice?act=deleteNotice">公告删除</a> </li>
                     </ul>
                 </li>
                 <li><a href="adminType/toManagerType">类型管理</a></li>
                 <li><a href="adminUser/userInfo">用户管理</a></li>
-                <li><a href="adminOrder/orderInfo">订单管理</a></li>
+                <li class="active"><a href="adminOrder/orderInfo">订单管理</a></li>
                 <li><a href="admin/exit">安全退出</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h2 class="sub-header">商品列表</h2>
+            <h2 class="sub-header">订单列表</h2>
             <div class="table-responsive">
                 <c:if test="${orderList.size() == 0}">
-                    您还没有商品。
+                    您还没有订单。
                 </c:if>
                 <c:if test="${orderList.size() != 0}">
                 <table border="1" bordercolor="PaleGreen">

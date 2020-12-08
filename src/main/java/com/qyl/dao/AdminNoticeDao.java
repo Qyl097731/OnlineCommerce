@@ -1,5 +1,10 @@
 package com.qyl.dao;
 
+import com.qyl.instance.Notice;
+import org.springframework.ui.Model;
+
+import java.util.ArrayList;
+
 /**
  * projectName:  e-commerce
  * packageName: com.qyl.dao.AdminDao
@@ -8,4 +13,11 @@ package com.qyl.dao;
  * @author 邱依良
  */
 public interface AdminNoticeDao {
+    ArrayList<Notice> selectNotices();
+
+    Void deleteNotice(ArrayList<Integer>list);
+
+    void deleteANotice(Integer id);
+
+    Integer addNotice(Notice notice);
 }

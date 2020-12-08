@@ -12,17 +12,22 @@ import java.util.ArrayList;
  * packageName: com.qyl.dao.AdminDao
  * date: 2020-10-30 02:48
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 public interface IndexDao {
     ArrayList<SaleOrder> getSaleOrder();
 
     ArrayList<FocusOrder> getFocusOrder();
 
-    ArrayList<FocusOrder> selectNotice();
+    ArrayList<Notice> selectNotice();
 
     ArrayList<Goods> getLastedGoods(Goods goods);
 
     ArrayList<Goods> search(String mykey);
 
     Goods selectGoodsById(Integer id);
+
+    Integer getFocusNum(Integer id);
+
+    Integer getSaleNum(Integer id);
 }

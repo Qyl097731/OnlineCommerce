@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.qyl.dao.UserCenterDao">
-<!--    ArrayList<Map<String,Object>> myOrder(Integer uid);
 
-        ArrayList<Map<String,Object>> myFocus(Integer uid);
-
-        Map<String,Object> oderDetail(Integer orderSn);
--->
-        <select id="myOrder" resultType="map" parameterType="Integer">
-            select * from tb_orderbase where busertable_id = #{uid}
+    <select id="myOrder" resultType="map" parameterType="Integer">
+            select * from tb_orderbase ob where ob.busertable_id = #{uid}
         </select>
-
-        <select id="myFocus" resultType="map" parameterType="Integer">
-            select * from tb_focus where busertable_id = #{uid}
+    <select id="myFocus" resultType="map" parameterType="Integer">
+            select g.id gid,f.id,g.gname,g.gpicture
+            from tb_focus f
+            inner join tb_goods g on f.goodstable_id = g.id
+            where f.busertable_id = #{uid}
         </select>
-        <select id="oderDetail" resultType="map" parameterType="Integer">
-            select goods.*,detail.shoppingnum from tb_goods goods,tb_orderdetail detail
+    <select id="orderDetail" resultType="map" parameterType="Integer">
+            select goods.id gid,goods.gname,goods.gpicture,detail.shoppingnum,ob.status,ob.amount,detail.orderbasetable_id  from tb_goods goods,tb_orderdetail detail
+            inner join tb_orderbase ob on detail.orderbasetable_id = ob.id
             where detail.goodstable_id = goods.id and orderbasetable_id = #{orderSn}
-        </select>
-
+    </select>
+    <delete id="deleteAFocus" parameterType="map">
+            delete from tb_focus  where busertable_id = #{uid} and goodstable_id = #{gid}
+        </delete>
 </mapper>
