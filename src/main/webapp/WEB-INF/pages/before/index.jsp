@@ -23,7 +23,6 @@
     <script src="/css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <!-- Custom styles for this template -->
     <link href="/css/before/main.css" rel="stylesheet"/>
-    <link href="/css/before/carousel.css" rel="stylesheet"/>
     <script>
         $('#myCarousel').carousel({
             interval: 2000

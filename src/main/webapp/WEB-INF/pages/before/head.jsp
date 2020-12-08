@@ -6,14 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getLocalPort() + path + "/";
-%>
+
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link href="/css/before/carousel.css" rel="stylesheet"/>
     <script>
         $('.dropdown-toggle').dropdown()
     </script>
@@ -31,7 +29,7 @@
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="before">主页</a></li>
+                            <li><a href="before">主页</a></li>
                             <li><a href="#">个人中心</a></li>
                             <li><a href="myFocus">收藏夹</a></li>
                             <li><a href="cart/selectCart">购物车</a></li>
