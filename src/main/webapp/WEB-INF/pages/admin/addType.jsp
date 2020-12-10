@@ -1,12 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
   User: asus
-  Date: 2020/11/3
-  Time: 21:40
-  To change this template use File | Settings | File Templates.
---%><%--
-  Created by IntelliJ IDEA.
-  User: asus
   Date: 2020/10/29
   Time: 23:30
   To change this template use File | Settings | File Templates.
@@ -22,10 +16,10 @@
 <head>
     <base href="<%=basePath%>">
     <link rel="stylesheet" type="text/css"
-          href="/css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
-    <script src="/jquery/jquery-3.5.1.min.js"></script>
-    <script src="/jquery/jquery-3.5.1.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
+          href="css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <script src="jquery/jquery-3.5.1.min.js"></script>
+    <script src="jquery/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
     <link rel="stylesheet" type="text/css" href="css/admin/dashboard.css">
     <link rel="stylesheet" type="text/css" href="css/admin/main.css">
     <script>

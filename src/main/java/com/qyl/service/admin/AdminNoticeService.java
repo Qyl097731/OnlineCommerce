@@ -45,7 +45,6 @@ public class AdminNoticeService {
         model.addAttribute("total", total);
         model.addAttribute("info", info);
         if (deleteNotice.equals(act)) {
-            System.out.println(1);
             return "admin/deleteSelectNotice";
         } else {
             return "admin/selectNotice";
