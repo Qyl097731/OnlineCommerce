@@ -30,4 +30,6 @@ public interface IndexDao {
     Integer getFocusNum(Integer id);
 
     Integer getSaleNum(Integer id);
+
+    ArrayList<Goods> selectGoodsByTypeId(Integer id);
 }

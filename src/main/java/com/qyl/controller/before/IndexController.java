@@ -27,6 +27,17 @@ public class IndexController{
     public String before(Model model, HttpSession session, Goods goods){
         return indexService.before(model,session,goods);
     }
+    @RequestMapping("/selectGoodsByTypeId")
+    public String selectGoodsByTypeId(Model model,Integer id){
+        /*
+         * @Description: 按种类查商品
+         * @Param: [model]
+         * @return: java.lang.String
+         * @Author: Mr.Qiu
+         * @Date: 2020/12/15
+         */
+        return indexService.selectGoodsByTypeId(id,model);
+    }
     @RequestMapping("/search")
     public String search(Model model,String mykey){
         return indexService.search(model,mykey);

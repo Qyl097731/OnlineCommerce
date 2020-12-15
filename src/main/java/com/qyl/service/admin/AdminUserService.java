@@ -30,6 +30,13 @@ public class AdminUserService {
     }
 
     public String deleteuserManager(Integer id, Model model) {
+        /*
+        * @Description: 删除用户
+        * @Param: [id, model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         adminUserDao.deleteOrderBaseByUId(id);
         adminUserDao.deleteFocusByUId(id);
         adminUserDao.deleteOrderDetailByUId(id);
@@ -39,7 +46,14 @@ public class AdminUserService {
     }
 
     public String userInfo(Model model, @RequestParam(value = "pageCur", defaultValue = "1") Integer pageCur) {
-        PageHelper.startPage(pageCur, 10);
+        /*
+        * @Description: 查找所有用户信息
+        * @Param: [model, pageCur]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
+        PageHelper.startPage(pageCur, 20);
         ArrayList<Buser> userList = adminUserDao.userInfo();
         PageInfo<Buser> info = new PageInfo<>(userList, 5);
         int[] nums = info.getNavigatepageNums();

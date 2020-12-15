@@ -26,6 +26,13 @@ public class AdminTypeService {
 
 
     public ArrayList<GoodsType> getAllTypes(){
+        /*
+        * @Description: 查找种类
+        * @Param: []
+        * @return: java.util.ArrayList<com.qyl.instance.GoodsType>
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         return adminTypeDao.selectGoodsType();
     }
 
@@ -43,6 +50,13 @@ public class AdminTypeService {
     }
 
     public String addType(String typename, Model model, HttpSession session){
+        /*
+        * @Description: 增加种类
+        * @Param: [typename, model, session]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         adminTypeDao.addType(typename);
         //添加商品与修改商品页面使用
         session.setAttribute("goodsType",adminTypeDao.selectGoodsType());

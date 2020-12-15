@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author 邱依良
  */
 public interface AdminNoticeDao {
+
     ArrayList<Notice> selectNotices();
 
     Void deleteNotice(ArrayList<Integer>list);

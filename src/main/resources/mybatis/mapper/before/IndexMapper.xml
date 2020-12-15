@@ -53,6 +53,10 @@
         select goods.*,typename from tb_goods goods ,tb_goodstype goodstype
         where goods.id = #{id} and goods.gtype_id = goodstype.id
     </select>
+    <select id="selectGoodsByTypeId" parameterType="java.lang.Integer" resultType="com.qyl.instance.Goods">
+        select goods.*,typename from tb_goods goods ,tb_goodstype goodstype
+        where goodstype.id = #{id} and goods.gtype_id = goodstype.id
+    </select>
 
     <select id="getFocusNum" parameterType="Integer" resultType="Integer">
         select count(id) focusNum

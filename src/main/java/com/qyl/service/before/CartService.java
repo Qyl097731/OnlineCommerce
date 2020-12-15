@@ -30,6 +30,13 @@ public class CartService {
     }
 
     public String focus(Model model, Integer id, HttpSession session){
+        /*
+        * @Description: 查找我的关注
+        * @Param: [model, id, session]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         Map<String ,Object> map = new HashMap<>();
         map.put("uid", MyUtil.getUserID(session));
         map.put("gid",id);
@@ -49,6 +56,13 @@ public class CartService {
     }
 
     public String putCart(Model model, Integer shoppingNum, Integer id, HttpSession session) {
+        /*
+        * @Description: 添加我购物车
+        * @Param: [model, shoppingNum, id, session]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         Map<String,Object> map = new HashMap<>();
         map.put("uid",MyUtil.getUserID(session));
         map.put("gid",id);
@@ -64,6 +78,13 @@ public class CartService {
     }
 
     public String selectCart(Model model, HttpSession session) {
+        /*
+        * @Description:查找购物车
+        * @Param: [model, session]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         ArrayList<Map<String,Object>> list = cartDao.selectCart(MyUtil.getUserID(session));
         double sum = 0;
         for(Map<String,Object> map : list){
@@ -75,6 +96,13 @@ public class CartService {
     }
 
     public String deleteAgoods(Integer id, HttpSession session) {
+        /*
+        * @Description: 删除购物车里的一个商品
+        * @Param: [id, session]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         Map<String,Object> map = new HashMap<>();
         map.put("uid",MyUtil.getUserID(session));
         map.put("gid",id);
@@ -83,12 +111,26 @@ public class CartService {
     }
 
     public String clear(HttpSession session) {
+        /*
+        * @Description: 生成订单 清空购物车
+        * @Param: [session]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         cartDao.clear(MyUtil.getUserID(session));
         return "forward:/cart/selectCart";
     }
 
 
     public String orderConfirm(Model model, HttpSession session) {
+        /*
+        * @Description: 订单确认
+        * @Param: [model, session]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         ArrayList<Map<String,Object>> list = cartDao.selectCart(MyUtil.getUserID(session));
         double sum = 0;
         for(Map<String,Object>map : list){

@@ -10,6 +10,7 @@ import com.qyl.instance.Auser;
  * @author 邱依良
  */
 public interface AdminDao {
+
     Auser selectAuserByAname(String aname);
 
     Integer updateInfo(Auser auser);

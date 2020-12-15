@@ -28,6 +28,13 @@ public class IndexService {
     }
 
     public String before(Model model, HttpSession session, Goods goods) {
+        /*
+        * @Description: 跳转到主页 并且显示热搜 公告 感兴趣的商品集合
+        * @Param: [model, session, goods]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         session.setAttribute("goodsType",adminTypeDao.selectGoodsType());
         model.addAttribute("salelist",indexDao.getSaleOrder());
         model.addAttribute("focuslist",indexDao.getFocusOrder());
@@ -39,17 +46,50 @@ public class IndexService {
         return "before/index";
     }
     public String search(Model model,String mykey){
+        /*
+        * @Description: 模糊查询商品
+        * @Param: [model, mykey]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         ArrayList<Goods>list = indexDao.search(mykey);
         model.addAttribute("searchlist",list);
         return "before/searchResult";
     }
 
+    public String selectGoodsByTypeId(Integer id,Model model) {
+        /*
+         * @Description: 按照种类查找商品
+         * @Param: [id]
+         * @return: java.lang.String
+         * @Author: Mr.Qiu
+         * @Date: 2020/12/15
+         */
+        ArrayList<Goods>list = indexDao.selectGoodsByTypeId(id);
+        model.addAttribute("searchlist",list);
+        return "before/searchResult";
+    }
     public String toRegister(Model model) {
+        /*
+        * @Description: 去注册
+        * @Param: [model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         model.addAttribute("buser",new Buser());
         return "before/register";
     }
 
     public String goodsDetail(Model model, Integer id) {
+        /*
+        * @Description: 商品详情
+        * @Param: [model, id]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         Goods goods = indexDao.selectGoodsById(id);
         Integer focusNum = indexDao.getFocusNum(id);
         Integer saleNum = indexDao.getSaleNum(id);
@@ -60,6 +100,13 @@ public class IndexService {
     }
 
     public String toLogin(Model model) {
+        /*
+        * @Description: 去登录
+        * @Param: [model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         model.addAttribute("buser",new Buser());
         return "before/login";
     }

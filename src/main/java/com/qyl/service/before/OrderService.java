@@ -35,6 +35,13 @@ public class OrderService {
 
 
     public String orderSubmit(Model model, HttpSession session, Double amount) {
+        /*
+        * @Description: 订单提交
+        * @Param: [model, session, amount]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         OrderBase order = new OrderBase();
         order.setAmount(amount);
         order.setBusertable_id(MyUtil.getUserID(session));
@@ -60,11 +67,25 @@ public class OrderService {
     }
 
     public String pay(Integer orderSn) {
+        /*
+        * @Description: 支付订单
+        * @Param: [orderSn]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         orderDao.pay(orderSn);
         return "before/payDone";
     }
 
     public String updateOrderStatue(Integer orderSn) {
+        /*
+        * @Description: 更新订单信息
+        * @Param: [orderSn]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         orderDao.updateOrderStatue(orderSn);
         return "forward:/myOrder";
     }

@@ -48,7 +48,7 @@ public class AdminService {
             //添加商品与修改商品的页面所要的信息
             PageHelper.startPage(1, 20);
             ArrayList<Goods> allGoods = adminGoodsDao.selectGoods();
-            PageInfo<Goods> info = new PageInfo<>(allGoods, 5);
+            PageInfo<Goods> info = new PageInfo<>(allGoods,5);
             int[] nums = info.getNavigatepageNums();
             long total = info.getTotal();
             model.addAttribute("nums", nums);
@@ -71,11 +71,25 @@ public class AdminService {
         return "admin/login";
     }
     public String toUpdateInfo(Model model,HttpSession session){
+        /*
+        * @Description: 到更新个人信息页面 显示当前个人信息
+        * @Param: [model, session]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         Auser auser = (Auser)session.getAttribute("auser");
         model.addAttribute("auser",adminDao.selectAuserByAname(auser.getAname()));
         return "admin/updateInfo";
     }
     public String toPageMain(Model model) {
+        /*
+        * @Description: 跳转到后台页面
+        * @Param: [model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         PageHelper.startPage(1, 10);
         ArrayList<Goods> allGoods = adminGoodsDao.selectGoods();
         PageInfo<Goods> info = new PageInfo<>(allGoods, 5);
@@ -89,6 +103,13 @@ public class AdminService {
     }
 
     public String updateInfo(Model model, Auser auser) {
+        /*
+        * @Description: 更新个人信息
+        * @Param: [model, auser]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         if(adminDao.updateInfo(auser) > 1){
             model.addAttribute("msg","修改成功");
         }else{

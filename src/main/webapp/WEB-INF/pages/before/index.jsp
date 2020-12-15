@@ -21,8 +21,6 @@
     <script src="jquery/jquery-3.5.1.min.js"></script>
     <script src="jquery/jquery-3.5.1.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
-    <link rel="stylesheet" type="text/css" href="css/admin/dashboard.css">
-    <link rel="stylesheet" type="text/css" href="css/admin/main.css">
     <script>
         $('#myCarousel').carousel({
             interval: 2000
@@ -38,7 +36,7 @@
          style="width: 260px;height:500px;padding: 0;margin-top: 22px;">
         <div class="list-group" style="width: 260px;height:500px;">
             <c:forEach items="${sessionScope.goodsType}" var="type">
-                <a href="#" class="list-group-item" style="height: 50px">${type.typename}</a>
+                <a href="selectGoodsByTypeId?id=${type.id}" class="list-group-item" style="height: 50px">${type.typename}</a>
             </c:forEach>
         </div>
     </div>

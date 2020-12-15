@@ -19,6 +19,7 @@ import java.util.Random;
  * packageName: com.qyl.controller.before
  * date: 2020-10-29 18:42
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 @Controller
 public class ValidateCodeController {

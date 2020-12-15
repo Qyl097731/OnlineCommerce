@@ -1,7 +1,7 @@
 package com.qyl.exception;
 
-import com.qyl.exception.AdminLoginNoException.AdminLoginNoException;
-import com.qyl.exception.UserLoginNoException.UserLoginNoException;
+import com.qyl.exception.admin.AdminLoginNoException;
+import com.qyl.exception.before.UserLoginNoException;
 import com.qyl.instance.Auser;
 import com.qyl.instance.Buser;
 import org.springframework.stereotype.Component;

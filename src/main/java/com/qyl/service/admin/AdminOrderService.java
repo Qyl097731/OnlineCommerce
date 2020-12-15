@@ -27,13 +27,27 @@ public class AdminOrderService {
     }
 
     public String deleteorderManager(Integer id) {
+        /*
+        * @Description: 根据id删除订单
+        * @Param: [id]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         adminOrderDao.deleteOrderDetail(id);
         adminOrderDao.deleteOrderBase(id);
         return "forward:/adminOrder/orderInfo";
     }
 
     public String orderInfo(Model model,@RequestParam(value = "pageCur",defaultValue = "1") Integer pageCur) {
-        PageHelper.startPage(pageCur, 10);
+        /*
+        * @Description: 订单信息查询
+        * @Param: [model, pageCur]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
+        PageHelper.startPage(pageCur, 20);
         ArrayList<Map<String,Object> > list = adminOrderDao.orderInfo();
         PageInfo<Map<String,Object>> info = new PageInfo<>(list, 5);
         int[] nums = info.getNavigatepageNums();

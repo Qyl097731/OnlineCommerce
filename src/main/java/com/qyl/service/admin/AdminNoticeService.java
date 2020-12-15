@@ -35,6 +35,13 @@ public class AdminNoticeService {
     }
 
     public String selectNotices(Model model, Integer pageCur, String act) {
+        /*
+        * @Description: 查找公告 按照act返回不同界面
+        * @Param: [model, pageCur, act]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         PageHelper.startPage(pageCur, 20);
         ArrayList<Notice> allNotices = adminNoticeDao.selectNotices();
         PageInfo<Notice> info = new PageInfo<>(allNotices, 5);
@@ -52,6 +59,13 @@ public class AdminNoticeService {
     }
 
     public String deleteNotice(Integer[] ids, Model model) {
+        /*
+        * @Description: 批量删除公告 返回删除界面
+        * @Param: [ids, model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(ids));
         adminNoticeDao.deleteNotice(list);
         model.addAttribute("msg", "成功删除商品");
@@ -59,11 +73,25 @@ public class AdminNoticeService {
     }
 
     public String deleteANotice(Integer id, Model model) {
+        /*
+        * @Description: 删除一个公告
+        * @Param: [id, model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         adminNoticeDao.deleteANotice(id);
         return "forward:/adminNotice/selectNotices?act=deleteSelect";
     }
 
     public String addNotice(Notice notice, HttpServletRequest request) {
+        /*
+        * @Description: 增加公告
+        * @Param: [notice, request]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         String newFileName = "";
         String fileName = notice.getLogos().getOriginalFilename();
         if (fileName.length() > 0) {

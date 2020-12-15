@@ -74,7 +74,7 @@ public class AdminController {
         /*
         * @Description: 验证码错误直接返回登陆界面并提示错误信息
         * @Param: [auser, code, model, session]
-        * @return: java.lang.String
+        * @return: java.lang.String---
         * @Author: Mr.Qiu
         * @Date: 2020/11/26
         */

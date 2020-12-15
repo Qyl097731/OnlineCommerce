@@ -36,6 +36,13 @@ public class AdminGoodsService {
 
 
     public String addOrUpdateGoods(Goods goods, HttpServletRequest request, String updateAct) {
+        /*
+        * @Description: 按照updateAct 判断是增加还是更新商品
+        * @Param: [goods, request, updateAct]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         String newFileName = "";
         String fileName = goods.getLogoImage().getOriginalFilename();
         if (fileName.length() > 0) {
@@ -74,6 +81,13 @@ public class AdminGoodsService {
     }
 
     public String selectGoods(Model model, Integer pageCur, String act) {
+        /*
+        * @Description: 查商品
+        * @Param: [model, pageCur, act]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         PageHelper.startPage(pageCur, 20);
         ArrayList<Goods> allGoods = adminGoodsDao.selectGoods();
         PageInfo<Goods> info = new PageInfo<>(allGoods, 5);
@@ -93,6 +107,13 @@ public class AdminGoodsService {
     }
 
     public String selectAGoods(Model model, Integer id, String act) {
+        /*
+        * @Description: 按照id查找商品
+        * @Param: [model, id, act]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         Goods goods = adminGoodsDao.selectGoodsById(id);
         model.addAttribute("goods", goods);
         //修改界面
@@ -104,6 +125,13 @@ public class AdminGoodsService {
     }
 
     public String deleteGoods(Integer[] ids, Model model) {
+        /*
+        * @Description: 批量删除 有关联就不允许删除 返回删除界面
+        * @Param: [ids, model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < ids.length; i++) {
             if (adminGoodsDao.selectCartGoods(ids[i]).size() > 0 ||
@@ -120,6 +148,13 @@ public class AdminGoodsService {
     }
 
     public String deleteAGoods(Integer id, Model model) {
+        /*
+        * @Description: 按照id删除商品 有关联不可删除 返回到删除界面
+        * @Param: [id, model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2020/12/15
+        */
         if (adminGoodsDao.selectCartGoods(id).size() > 0 ||
                 adminGoodsDao.selectFocusGoods(id).size() > 0 ||
                 adminGoodsDao.selectOrderDetailGoods(id).size() > 0){
@@ -129,4 +164,6 @@ public class AdminGoodsService {
         adminGoodsDao.deleteAGoods(id);
         return "forward:/adminGoods/selectGoods?act=deleteSelect";
     }
+
+
 }

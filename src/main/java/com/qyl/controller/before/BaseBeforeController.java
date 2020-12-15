@@ -1,7 +1,6 @@
 package com.qyl.controller.before;
 
-import com.qyl.exception.AdminLoginNoException.AdminLoginNoException;
-import com.qyl.exception.UserLoginNoException.UserLoginNoException;
+import com.qyl.exception.before.UserLoginNoException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpSession;
  * packageName: com.qyl.controller.admin
  * date: 2020-10-29 18:21
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 @Controller
 public class BaseBeforeController {
