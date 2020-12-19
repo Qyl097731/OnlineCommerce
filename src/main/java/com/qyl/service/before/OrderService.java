@@ -32,13 +32,11 @@ import java.util.Map;
 public class OrderService {
     private final UserCenterDao userCenterDao;
     private final OrderDao orderDao;
-    private final CartDao cartDao;
 
     @Autowired
-    public OrderService(UserCenterDao userCenterDao, OrderDao orderDao, CartDao cartDao) {
+    public OrderService(UserCenterDao userCenterDao, OrderDao orderDao) {
         this.userCenterDao = userCenterDao;
         this.orderDao = orderDao;
-        this.cartDao = cartDao;
     }
 
 

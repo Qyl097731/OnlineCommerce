@@ -11,6 +11,7 @@
     <option name="OPTION_DOCUMENT_TAG_VERSION" value="true" />
     <option name="OTHER_OPTIONS" value="-encoding UTF-8 -charset UTF-8 -windowtitle &quot;接口wiki&quot; -link http://docs.Oracle.com/javase/7/docs/api" />
     <option name="LOCALE" value="zh_CN" />
+    <option name="OPTION_INCLUDE_LIBS" value="true" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
