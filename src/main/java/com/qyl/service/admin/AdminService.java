@@ -19,6 +19,7 @@ import java.util.ArrayList;
  * packageName: com.qyl.service.AdminService
  * date: 2020-10-30 02:25
  * copyright(c) 2020 南晓18卓工 邱依良
+ * @author 邱依良
  */
 @Service
 public class AdminService {
@@ -110,7 +111,7 @@ public class AdminService {
         * @Author: Mr.Qiu
         * @Date: 2020/12/15
         */
-        if(adminDao.updateInfo(auser) > 1){
+        if(adminDao.updateInfo(auser) > 0){
             model.addAttribute("msg","修改成功");
         }else{
             model.addAttribute("msg","修改失败");

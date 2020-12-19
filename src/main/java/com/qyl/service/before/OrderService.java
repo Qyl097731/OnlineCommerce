@@ -118,13 +118,16 @@ public class OrderService {
                 + "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
         String form = "";
         try {
-            form = alipayClient.pageExecute(request).getBody(); // 调用SDK生成表单
+
+            // 调用SDK生成表单
+            form = alipayClient.pageExecute(request).getBody();
         } catch (AlipayApiException e) {
             e.printStackTrace();
         }
         orderDao.pay(orderSn);
         httpResponse.setContentType("text/html;charset=" + AlipayConfig.CHARSET);
-        httpResponse.getWriter().write(form);// 直接将完整的表单html输出到页面
+        // 直接将完整的表单html输出到页面
+        httpResponse.getWriter().write(form);
         httpResponse.getWriter().flush();
         httpResponse.getWriter().close();
     }

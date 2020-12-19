@@ -22,33 +22,35 @@
     <script src="jquery/jquery-3.5.1.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
     <link rel="stylesheet" type="text/css" href="css/admin/dashboard.css">
-    <link rel="stylesheet" type="text/css" href="css/admin/main.css">
     <style>
         input{outline: none}
         label{outline: none}
     </style>
-</head>
-<script>
-    function showMenu(id) {
-        $(".menu").hide().eq(id).css("display","block")
-    }
 
-    function hideMenu() {
-        $(".menu").hidden;
-    }
-    $(document).ready(function () {
-        if ($(".nav-sidebar li").mousemove(function () {
-            const id = $(this).index();
-            showMenu(id);
-        })) ;
-        if ($(".nav-sidebar li").mouseout(function () {
-            hideMenu();
-        })) ;
-        if(${not empty msg}){
-            alert(${msg})
+    <script>
+        function showMenu(id) {
+            $(".menu").hide().eq(id).css("display","block")
         }
-    })
-</script>
+
+        function hideMenu() {
+            $(".menu").hidden;
+        }
+
+        $(document).ready(function () {
+
+            if ($(".nav-sidebar li").mousemove(function () {
+                const id = $(this).index();
+                showMenu(id);
+            })) ;
+            if ($(".nav-sidebar li").mouseout(function () {
+                hideMenu();
+            })) ;
+            if(${not empty msg}){
+                alert('${msg}')
+            }
+        })
+    </script>
+</head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
