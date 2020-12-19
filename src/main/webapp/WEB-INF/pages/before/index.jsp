@@ -17,10 +17,13 @@
 <head>
     <base href="<%=basePath%>">
     <link rel="stylesheet" type="text/css"
-          href="css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
-    <script src="jquery/jquery-3.5.1.min.js"></script>
-    <script src="jquery/jquery-3.5.1.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
+          href="/css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <script src="/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/jquery/jquery-3.5.1.js"></script>
+    <script src="/css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="/css/before/main.css" rel="stylesheet"/>
+    <link href="/css/before/carousel.css" rel="stylesheet"/>
     <script>
         $('#myCarousel').carousel({
             interval: 2000

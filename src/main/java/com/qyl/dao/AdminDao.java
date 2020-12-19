@@ -10,8 +10,17 @@ import com.qyl.instance.Auser;
  * @author 邱依良
  */
 public interface AdminDao {
-
+    /**
+     * 根据用户名查询用户
+     * @param aname
+     * @return Auser
+     */
     Auser selectAuserByAname(String aname);
 
+    /**
+     * 更新用户信息 返回是否成功
+     * @param auser
+     * @return Integer
+     */
     Integer updateInfo(Auser auser);
 }

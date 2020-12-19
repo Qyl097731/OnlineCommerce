@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.qyl.dao.OrderDao">
-<!--    void addOrder(OrderBase order);
 
-    void addOrderDetail(Map<String, Object> map);
-
-    ArrayList<Map<String, Object>> selectGoodsShop(Integer userID);
-
-    void updateStore(Map<String, Object> map2);
-
-    void clear(Integer userID);
-
-    void pay(Integer orderSn);
--->
-    <!--
-    private Integer busertable_id;
-    private Double amount;
-    private Integer status;
-    private Timestamp orderdate;
-    -->
     <!--    添加一个订单，成功后将主键回填 -->
     <insert id="addOrder" parameterType="com.qyl.instance.OrderBase" keyProperty="id" useGeneratedKeys="true">
         insert into tb_orderbase(busertable_id,amount,status,orderdate)

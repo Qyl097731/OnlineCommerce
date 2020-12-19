@@ -28,6 +28,6 @@
 </head>
 <body>
 <jsp:include page="head.jsp"/>
-<div style="width: 1400px;text-align: center;margin: 20px auto"><a href="before" class="btn btn-success">看看其他</a>&nbsp;<a href="pay?orderSn=${orderSn}" class="btn btn-success">立即付款</a> </div>
+<div style="width: 1400px;text-align: center;margin: 20px auto"><a href="before" class="btn btn-success">看看其他</a>&nbsp;<a href="alipay?orderSn=${orderSn}" target="_blank" class="btn btn-success">立即付款</a> </div>
 </body>
 </html>

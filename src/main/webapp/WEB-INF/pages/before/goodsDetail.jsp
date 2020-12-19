@@ -20,9 +20,7 @@
           href="css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
     <script src="jquery/jquery-3.5.1.min.js"></script>
     <script src="jquery/jquery-3.5.1.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
-    <link rel="stylesheet" type="text/css" href="css/admin/dashboard.css">
-    <link rel="stylesheet" type="text/css" href="css/admin/main.css">
+    <script src="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
             if (${not empty msg}) {
@@ -66,7 +64,7 @@
 <div style="margin: 50px auto;height:50px;width: 1400px;">
     <ul class="nav nav-tabs" style="border: 1px solid #ddd;width: 1400px;display: flex;justify-content: space-between">
         <c:forEach items="${sessionScope.goodsType}" var="type">
-            <li role="presentation"><a href="">${type.typename}</a></li>
+            <li role="presentation"><a href="selectGoodsByTypeId?id=${type.id}">${type.typename}</a></li>
         </c:forEach>
     </ul>
 </div>
@@ -148,7 +146,7 @@
         <img width="350" src="//gtms01.alicdn.com/tps/i1/TB1NYpMFVXXXXXsXFXXFHLvIVXX-198-45.png">
         <div class="tb-shop-info-wrap" style="padding: 25px">
             <div class="tb-shop-info-hd">
-                <div class="tb-shop-name" >
+                <div class="tb-shop-name">
                     <dl>
                         <dd>
                             <strong>
@@ -189,7 +187,11 @@
                 <dl>
                     <dt style="width: 50px;display: inline">联系：</dt>
                     <dd style="width: 150px;display: inline">
-                        <span class="ww-light ww-large" data-nick="你好，谢谢666" data-tnick="%E4%BD%A0%E5%A5%BD%EF%BC%8C%E8%B0%A2%E8%B0%A2666" data-encode="true"><a href="https://amos.alicdn.com/getcid.aw?v=3&amp;groupid=0&amp;s=1&amp;charset=utf-8&amp;uid=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E8%B0%A2%E8%B0%A2666&amp;site=cntaobao&amp;fromid=cntaobaot_1484890332079_0523" target="_blank" class="ww-inline ww-online" title="点此可以直接和卖家交流选好的宝贝，或相互交流网购体验，还支持语音视频噢。"><span>旺旺在线</span></a></span>
+                        <span class="ww-light ww-large" data-nick="你好，谢谢666"
+                              data-tnick="%E4%BD%A0%E5%A5%BD%EF%BC%8C%E8%B0%A2%E8%B0%A2666" data-encode="true"><a
+                                href="https://amos.alicdn.com/getcid.aw?v=3&amp;groupid=0&amp;s=1&amp;charset=utf-8&amp;uid=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E8%B0%A2%E8%B0%A2666&amp;site=cntaobao&amp;fromid=cntaobaot_1484890332079_0523"
+                                target="_blank" class="ww-inline ww-online"
+                                title="点此可以直接和卖家交流选好的宝贝，或相互交流网购体验，还支持语音视频噢。"><span>旺旺在线</span></a></span>
                     </dd>
                 </dl>
             </div>
@@ -198,7 +200,8 @@
                     <dt style="width: 50px;display: inline">资质：</dt>
                     <dd style="width: 150px;display: inline">
 
-                        <a class="glyphicon glyphicon-user" href="#" target="_blank" title="支付宝个人认证2016-12-06" data-spm="d12"></a>
+                        <a class="glyphicon glyphicon-user" href="#" target="_blank" title="支付宝个人认证2016-12-06"
+                           data-spm="d12"></a>
 
                         <span class="tb-seller-bail" href="" target="_blank" title="已缴纳5038元保证金">
                             &nbsp;开店九年
@@ -209,12 +212,14 @@
             </div>
             <div class="tb-shop-info-bd" style="width: 300px;display: flex;flex-wrap: wrap;padding-top: 20px">
 
-                <div class="tb-shop-rate" style="width: 300px;display: flex;flex-wrap: wrap;justify-content: space-between">
+                <div class="tb-shop-rate"
+                     style="width: 300px;display: flex;flex-wrap: wrap;justify-content: space-between">
                     <dl style="display: inline;border-right: 1px solid #eee">
                         <dt style="width: 90px;">描述</dt>
 
                         <dd class="tb-rate-higher" style="width: 90px;display: inline">
-                            <a href="//rate.taobao.com/user-rate-ff3e1224cefb2c974c8cac855cc3d82d.htm" target="_blank" title="计算规则:(同行业平均分-店铺得分)/(同行业平均分-同行业店铺最低得分)">
+                            <a href="//rate.taobao.com/user-rate-ff3e1224cefb2c974c8cac855cc3d82d.htm" target="_blank"
+                               title="计算规则:(同行业平均分-店铺得分)/(同行业平均分-同行业店铺最低得分)">
                                 4.9<img src="/logos/up.png" width="20px" height="20px">
                             </a>
                         </dd>
@@ -223,7 +228,8 @@
                         <dt style="width: 90px;">服务</dt>
 
                         <dd class="tb-rate-higher" style="width: 90px;display: inline">
-                            <a href="//rate.taobao.com/user-rate-ff3e1224cefb2c974c8cac855cc3d82d.htm" target="_blank" title="计算规则:(同行业平均分-店铺得分)/(同行业平均分-同行业店铺最低得分)">
+                            <a href="//rate.taobao.com/user-rate-ff3e1224cefb2c974c8cac855cc3d82d.htm" target="_blank"
+                               title="计算规则:(同行业平均分-店铺得分)/(同行业平均分-同行业店铺最低得分)">
                                 4.9<img src="/logos/up.png" width="20px" height="20px">
                             </a>
                         </dd>
@@ -232,14 +238,15 @@
                         <dt style="width: 40px;border-right: 1px solid #eee">物流</dt>
 
                         <dd class="tb-rate-higher" style="width: 40px;display: inline">
-                            <a href="//rate.taobao.com/user-rate-ff3e1224cefb2c974c8cac855cc3d82d.htm" target="_blank" title="计算规则:(同行业平均分-店铺得分)/(同行业平均分-同行业店铺最低得分)">
+                            <a href="//rate.taobao.com/user-rate-ff3e1224cefb2c974c8cac855cc3d82d.htm" target="_blank"
+                               title="计算规则:(同行业平均分-店铺得分)/(同行业平均分-同行业店铺最低得分)">
                                 4.9<img src="/logos/up.png" width="20px" height="20px">
                             </a>
                         </dd>
                     </dl>
                 </div>
             </div>
-            <div style="margin-top: 20px;width: 300px;height:50px;display: flex;flex-wrap: w;justify-content: space-between">
+            <div style="margin-top: 20px;width: 300px;height:50px;display: flex;flex-wrap: wrap;justify-content: space-between">
                 <a class="btn"
                    style="line-height: 28px;width: 120px;height:40px;color: black;background: #FAFAFA;cursor: pointer;"
                    href="javascript:toPage();">立即购买</a>
@@ -249,5 +256,6 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>

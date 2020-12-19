@@ -11,9 +11,21 @@ import java.util.Map;
  * @author 邱依良
  */
 public interface AdminOrderDao {
+    /**
+     * 查询所有订单信息
+     * @return 订单信息集合
+     */
     ArrayList<Map<String, Object>> orderInfo();
 
+    /**
+     * 删除订单详情
+     * @param id
+     */
     void deleteOrderDetail(Integer id);
 
+    /**
+     * 删除订单
+     * @param id
+     */
     void deleteOrderBase(Integer id);
 }

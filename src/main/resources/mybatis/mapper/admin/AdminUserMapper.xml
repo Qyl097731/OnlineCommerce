@@ -7,7 +7,7 @@
     <select id="userInfo" resultType="com.qyl.instance.Buser">
         select * from tb_buser
     </select>
-    <select id="selectOrderBaseByUId" resultType="com.qyl.instance.OrderDetail">
+    <select id="selectOrderBaseByUId" resultType="com.qyl.instance.OrderBase">
         select * from tb_orderbase where busertable_id = #{id}
     </select>
     <select id="selectFocusByUId" resultType="com.qyl.instance.Focus">

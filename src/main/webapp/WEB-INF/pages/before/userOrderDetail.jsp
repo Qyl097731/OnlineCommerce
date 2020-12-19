@@ -47,7 +47,7 @@
                         <td><img src="logos/${myOrderDetail.gpicture}" width="100px" height="100px" alt="公告图片"/></td>
                         <td style="padding-top: 50px">${myOrderDetail.shoppingnum}</td>
                         <c:if test="${myOrderDetail.status == 0}">
-                        <td style="padding-top: 50px"><a href="updateOrderStatue?orderSn=${myOrderDetail.orderbasetable_id}" class="btn btn-success">立即付款</a></td>
+                        <td style="padding-top: 50px"><a href="alipay?orderSn=${myOrderDetail.orderbasetable_id}" class="btn btn-success">立即付款</a></td>
                         </c:if>
                         <c:if test="${myOrderDetail.status == 1}">
                             <td style="padding-top: 50px"><a href="myOrder" class="btn btn-success">返回</a></td>

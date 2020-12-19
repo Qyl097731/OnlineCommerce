@@ -19,7 +19,13 @@
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
+
   <dependencies>
+    <dependency>
+      <groupId>com.alipay.sdk</groupId>
+      <artifactId>alipay-sdk-java</artifactId>
+      <version>3.7.4.ALL</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
     <dependency>
       <groupId>javax.servlet</groupId>
