@@ -140,15 +140,15 @@
                             </td>
                             <td colspan="2">
                                 <span style="text-align: center">
-                                <a href="adminNotice/selectNotice?pageCur=${info.prePage}"
+                                <a href="adminNotice/selectNotice?pageCur=${info.prePage}&act=deleteNotice"
                                    contenteditable="${info.pageNum==1}"
                                    style="text-decoration:${info.pageNum==1?'none':'underline'};outline: none">上一页</a>
                                 <c:forEach items="${nums}" var="num">
-                                    <a href="adminNotice/selectNotice?pageCur=${num}"
+                                    <a href="adminNotice/selectNotice?pageCur=${num}&act=deleteNotice"
                                        style="text-decoration:${num==info.pageNum?'none':'underline'};outline: none"
                                        contenteditable="${num==info.pageNum}">${num}</a>
                                 </c:forEach>
-                                <a href="adminNotice/selectNotice?pageCur=${info.nextPage}"
+                                <a href="adminNotice/selectNotice?pageCur=${info.nextPage}&act=deleteNotice"
                                    contenteditable="${info.pages==info.pageNum}"
                                    style="text-decoration:${info.pages==info.pageNum?'none':'underline'};outline: none">下一页</a>
                                 </span>

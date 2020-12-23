@@ -143,15 +143,15 @@
                             </td>
                             <td colspan="2">
                                 <span style="text-align: center">
-                                <a href="adminGoods/selectGoods?pageCur=${info.prePage}"
+                                <a href="adminGoods/selectGoods?pageCur=${info.prePage}&act=deleteSelect"
                                    contenteditable="${info.pageNum==1}"
                                    style="text-decoration:${info.pageNum==1?'none':'underline'};outline: none">上一页</a>
                                 <c:forEach items="${nums}" var="num">
-                                    <a href="adminGoods/selectGoods?pageCur=${num}"
+                                    <a href="adminGoods/selectGoods?pageCur=${num}&act=deleteSelect"
                                        style="text-decoration:${num==info.pageNum?'none':'underline'};outline: none"
                                        contenteditable="${num==info.pageNum}">${num}</a>
                                 </c:forEach>
-                                <a href="adminGoods/selectGoods?pageCur=${info.nextPage}"
+                                <a href="adminGoods/selectGoods?pageCur=${info.nextPage}&act=deleteSelect"
                                    contenteditable="${info.pages==info.pageNum}"
                                    style="text-decoration:${info.pages==info.pageNum?'none':'underline'};outline: none">下一页</a>
                                 </span>

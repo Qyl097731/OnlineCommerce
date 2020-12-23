@@ -312,6 +312,5 @@
         <directory>src/main/resources</directory>
       </resource>
     </resources>
-    <finalName>com.qyl</finalName>
   </build>
 </project>
