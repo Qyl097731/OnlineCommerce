@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 @Controller
 @RequestMapping("/adminNotice")
-public class AdminNoticeController {
+public class AdminNoticeController extends BaseController{
     private final AdminNoticeService adminNoticeService;
 
     public AdminNoticeController(AdminNoticeService adminNoticeService) {

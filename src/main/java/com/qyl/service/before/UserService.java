@@ -56,7 +56,6 @@ public class UserService {
         if (n > 0) {
             return "before/login";
         } else {
-            model.addAttribute("failMsg", "注册失败");
             return "before/register";
         }
     }

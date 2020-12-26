@@ -16,38 +16,58 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="<%=basePath%>css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
     <script src="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <link href="css/login.css" rel="stylesheet">
     <script>
         $(document).ready(function () {
             $("#code").click(function () {
-                $("#code").prop("src","validateCode?"+new Date().getTime());
+                $("#code").prop("src", "validateCode?" + new Date().getTime());
             })
         })
     </script>
 </head>
 <body>
-<div class="container">
-    <form:form action="admin/login" method="post" class="form-signin" modelAttribute="auser" >
-        <label for="input_aname" class="sr-only">Email address</label>
-        <form:input path="aname" type="text" id="input_aname" class="form-control" placeholder="username" />
-        <div style="font-size: xx-small ;color: red" >${empty anameError ?'<br>':anameError}</div>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <form:input type="password" path="apwd" name="apwd" id="inputPassword" class="form-control" placeholder="password" />
-        <div style="font-size: xx-small ;color: red" >${empty passwordError ?'<br>':passworError}</div>
-        <input type="text" name="code" style="width: 225px" id="codeInput" required/>
-        <img id="code" src="validateCode"/>
-        <div style="font-size: xx-small ;color: red" id="codeError">${empty codeError ?'<br>':codeError}</div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
+<div class="login-wrap">
+    <div class="login-html" style="color: white">
+        <form:form action="admin/login" method="post" cssClass="form-signin" modelAttribute="auser">
+            <div class="form-group">
+                <label for="input_aname">USERNAME</label>
+                <form:input path="aname" type="text" id="input_aname" class="form-control"/>
+                <div style="font-size: xx-small ;color: red">${empty anameError ?'<br>':anameError}</div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">PASSWORD</label>
+                <form:input type="password" path="apwd" name="apwd" id="inputPassword" cssClass="form-control"
+                            cssStyle="color: whitesmoke"/>
+                <div style="font-size: xx-small ;color: red">${empty passwordError ?'<br>':passwordError}</div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" name="code" style="width: 225px" id="codeInput" required class="form-control"/>
+                    <img id="code" src="validateCode"/>
+                </div>
+                <div style="font-size: xx-small ;color: red" id="codeError">${empty codeError ?'<br>':codeError}</div>
+            </div>
+            <div class="input-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me" /> Remember me
+                    </label>
+                </div>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginBtn">Sign in</button>
+        </form:form>
+        <div class="hr"></div>
+        <div class="foot-lnk">
+            <p>Forgot Password?</p>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginBtn">Sign in</button>
-    </form:form>
-
+        <div class="foot-lnk">
+            <p>Back Home</p>
+        </div>
+    </div>
 </div>
 </body>
 </html>

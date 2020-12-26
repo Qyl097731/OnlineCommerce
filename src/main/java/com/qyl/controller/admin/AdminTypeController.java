@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 @RequestMapping("/adminType")
-public class AdminTypeController{
+public class AdminTypeController extends BaseController{
     private final AdminTypeService adminTypeService;
 
     @Autowired
