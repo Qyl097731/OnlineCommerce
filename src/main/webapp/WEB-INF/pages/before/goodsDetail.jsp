@@ -24,7 +24,7 @@
     <script>
         $(document).ready(function () {
             if (${not empty msg}) {
-                alert(${msg})
+                alert('${msg}')
             }
             $('#btn-add').click(function () {
                 let num = parseInt($("#num").val());

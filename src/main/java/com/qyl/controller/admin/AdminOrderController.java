@@ -26,10 +26,24 @@ public class AdminOrderController extends BaseController{
 
     @RequestMapping("/orderInfo")
     public String orderInfo(Model model,@RequestParam(value = "pageCur",defaultValue = "1") Integer pageCur){
+        /*
+        * @Description: 分页查询订单
+        * @Param: [model, pageCur]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return adminOrderService.orderInfo(model,pageCur);
     }
     @RequestMapping("/deleteorderManager")
     public String deleteorderManager(Integer id){
+        /*
+        * @Description: 根据id删除订单
+        * @Param: [id]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return adminOrderService.deleteorderManager(id);
     }
 }

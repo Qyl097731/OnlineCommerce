@@ -60,19 +60,47 @@ public class AdminGoodsController extends BaseController{
 
     @RequestMapping("/selectGoods")
     public String selectGoods(Model model, @RequestParam(value = "pageCur",defaultValue = "1", required = false) Integer pageCur, String act){
+        /*
+        * @Description: 分页查询商品
+        * @Param: [model, pageCur, act]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return adminGoodsService.selectGoods(model,pageCur,act);
     }
 
     @RequestMapping("/selectAGoods")
     public String selectAGoods(Model model,Integer id,String act){
+        /*
+        * @Description: 根据id查看一个商品
+        * @Param: [model, id, act]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return adminGoodsService.selectAGoods(model,id,act);
     }
     @RequestMapping("/deleteGoods")
     public String deleteGoods(Integer[] ids, Model model){
+        /*
+        * @Description: 根据ids批量删除商品
+        * @Param: [ids, model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return adminGoodsService.deleteGoods(ids,model);
     }
     @RequestMapping("/deleteAGoods")
     public String deleteAGoods(Integer id,Model model){
+        /*
+        * @Description: 根据id删除一个商品
+        * @Param: [id, model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return adminGoodsService.deleteAGoods(id,model);
     }
 

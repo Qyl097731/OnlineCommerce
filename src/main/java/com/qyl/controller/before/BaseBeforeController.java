@@ -20,6 +20,13 @@ public class BaseBeforeController {
 
     @ModelAttribute
     public void isLogin(HttpSession session, HttpServletRequest request) throws UserLoginNoException {
+       /*
+       * @Description: 根据ModelAttribute session实现登录拦截
+       * @Param: [session, request]
+       * @return: void
+       * @Author: Mr.Qiu
+       * @Date: 2021/1/4
+       */
         if(session.getAttribute("buser") == null){
             throw new UserLoginNoException("没有登录");
         }

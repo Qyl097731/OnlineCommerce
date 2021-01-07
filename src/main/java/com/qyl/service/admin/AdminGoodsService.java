@@ -75,7 +75,7 @@ public class AdminGoodsService {
                 //转发到查询的controller
                 return "forward:/adminGoods/selectGoods";
             } else {
-                return "card/addCard";
+                return "admin/addGoods";
             }
         }
     }

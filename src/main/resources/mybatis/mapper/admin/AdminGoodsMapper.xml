@@ -57,7 +57,6 @@
     <select id="selectOrderDetailGoods" resultType="com.qyl.instance.OrderDetail">
         select * from tb_orderdetail where goodstable_id=#{id}
     </select>
-
     <delete id="deleteGoods" >
         delete from tb_goods where id in
         <foreach collection="list" item="id" index="index" open="(" separator="," close=")">
@@ -67,4 +66,5 @@
     <delete id="deleteAGoods">
         delete from tb_goods where id = #{id}
     </delete>
+
 </mapper>

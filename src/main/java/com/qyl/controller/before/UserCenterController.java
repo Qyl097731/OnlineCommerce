@@ -25,19 +25,47 @@ public class UserCenterController extends BaseBeforeController{
 
     @RequestMapping("/myFocus")
     public String myFocus(HttpSession session, Model model){
+        /*
+        * @Description: 我的收藏
+        * @Param: [session, model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return userCenterService.myFocus(session,model);
     }
 
     @RequestMapping("/myOrder")
     public String myOrder(HttpSession session, Model model){
+        /*
+        * @Description: 我的订单
+        * @Param: [session, model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return userCenterService.myOrder(session,model);
     }
     @RequestMapping("/deleteAFocus")
     public String deleteAFocus(Integer id,HttpSession session){
+        /*
+        * @Description: 删除一收藏商品
+        * @Param: [id, session]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return userCenterService.deleteAFocus(id,session);
     }
     @RequestMapping("/orderDetail")
     public String orderDetail(Model model,Integer orderSn){
+        /*
+        * @Description: 订单详情
+        * @Param: [model, orderSn]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return userCenterService.orderDetail(model,orderSn);
     }
 }

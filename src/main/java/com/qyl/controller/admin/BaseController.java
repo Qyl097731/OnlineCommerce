@@ -19,6 +19,13 @@ public class BaseController {
 
     @ModelAttribute
     public void isLogin(HttpSession session) throws AdminLoginNoException {
+        /*
+        * @Description: 根据session ModelAttribute实现登录拦截
+        * @Param: [session]
+        * @return: void
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         if(session.getAttribute("auser") == null){
             throw new AdminLoginNoException("没有登录");
         }

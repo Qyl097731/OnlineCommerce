@@ -44,7 +44,7 @@
                 $(".ids:checked").each(function () {
                     ids.push($(this).val());
                 })
-                window.location.href = 'adminGoods/deleteGoods?ids='+ids;
+                window.location.href = 'adminNotice/deleteNotice?ids='+ids;
             })
         })
     </script>

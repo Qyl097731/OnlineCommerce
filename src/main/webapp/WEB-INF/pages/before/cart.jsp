@@ -25,7 +25,7 @@
 </head>
 <body>
 <jsp:include page="head.jsp"/>
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" >
     <h2 class="sub-header">购物车列表</h2>
     <div class="table-responsive">
         <c:if test="${cartList.size() == 0}">

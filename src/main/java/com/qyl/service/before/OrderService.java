@@ -97,7 +97,7 @@ public class OrderService {
 
     public void alipay(Integer orderSn, HttpServletResponse httpResponse) throws Exception {
         //获取订单详情
-        Map<String, Object> orderDetail = userCenterDao.orderDetail(orderSn);
+        Map<String, Object> orderBase = userCenterDao.selectOrderBaseById(orderSn);
         //实例化客户端,填入所需参数
         AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.GATEWAY_URL, AlipayConfig.APP_ID, AlipayConfig.APP_PRIVATE_KEY, AlipayConfig.FORMAT, AlipayConfig.CHARSET, AlipayConfig.ALIPAY_PUBLIC_KEY, AlipayConfig.SIGN_TYPE);
         AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();
@@ -109,9 +109,9 @@ public class OrderService {
         //生成随机Id
         String out_trade_no = MyUtil.getStringID();
         //付款金额，必填
-        Double total_amount =  (Double)orderDetail.get("amount");
+        Double total_amount =  (Double)orderBase.get("amount");
         //订单名称，必填
-        String subject = (String) orderDetail.get("gname");
+        String subject = out_trade_no;
         request.setBizContent("{\"out_trade_no\":\"" + out_trade_no + "\","
                 + "\"total_amount\":\"" + total_amount + "\","
                 + "\"subject\":\"" + subject + "\","

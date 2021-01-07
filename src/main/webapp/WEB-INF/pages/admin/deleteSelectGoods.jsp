@@ -32,6 +32,9 @@
         }
 
         $(document).ready(function () {
+            if(${not empty msg}){
+                alert('${msg}')
+            }
             if ($(".nav-sidebar li").mousemove(function () {
                 const id = $(this).index();
                 showMenu(id);

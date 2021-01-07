@@ -25,6 +25,13 @@ public class IndexController{
     }
     @RequestMapping("/before")
     public String before(Model model, HttpSession session, Goods goods){
+        /*
+        * @Description: 商城主页跳转
+        * @Param: [model, session, goods]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return indexService.before(model,session,goods);
     }
     @RequestMapping("/selectGoodsByTypeId")
@@ -40,10 +47,24 @@ public class IndexController{
     }
     @RequestMapping("/search")
     public String search(Model model,String mykey){
+        /*
+        * @Description: 模糊查询商品
+        * @Param: [model, mykey]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return indexService.search(model,mykey);
     }
     @RequestMapping("/goodsDetail")
     public String goodsDetail(Model model,Integer id){
+        /*
+        * @Description: 根据id查询商品详情
+        * @Param: [model, id]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return indexService.goodsDetail(model,id);
     }
 }

@@ -1,9 +1,6 @@
 package com.qyl.dao;
 
-import com.qyl.instance.Cart;
-import com.qyl.instance.Focus;
-import com.qyl.instance.Goods;
-import com.qyl.instance.OrderDetail;
+import com.qyl.instance.*;
 
 import java.util.ArrayList;
 import java.util.Collection;

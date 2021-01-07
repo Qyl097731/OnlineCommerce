@@ -39,7 +39,7 @@ public interface CartDao {
      */
     void updateCart(Map<String, Object> map);
     /**
-     * 是否已经放入购物车
+     * 更新购物车
      * @param map
      * @return 商品
      */
@@ -53,7 +53,7 @@ public interface CartDao {
     ArrayList<Map<String,Object>> selectCart(Integer uid);
 
     /**
-     * 删除一个商品
+     * 删除一个购物车商品
      * @param map
      */
     void deleteAgoods(Map<String, Object> map);

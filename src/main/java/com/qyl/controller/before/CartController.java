@@ -25,6 +25,13 @@ public class CartController extends BaseBeforeController{
     }
     @RequestMapping("/focus")
     public String focus(Model model, Integer id, HttpSession session){
+        /*
+        * @Description: 根据用户id查询收藏的商品
+        * @Param: [model, id, session]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return cartService.focus(model,id,session);
     }
 
@@ -42,7 +49,7 @@ public class CartController extends BaseBeforeController{
     @RequestMapping("/selectCart")
     public String selectCart(Model model,HttpSession session){
         /*
-        * @Description: 选择购物车
+        * @Description: 查询所有购物车商品
         * @Param: [model, session]
         * @return: java.lang.String
         * @Author: Mr.Qiu

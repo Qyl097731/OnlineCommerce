@@ -27,10 +27,24 @@ public class AdminUserController extends BaseController{
 
     @RequestMapping("/userInfo")
     public String userInfo(Model model,@RequestParam(value = "pageCur",defaultValue = "1") Integer pageCur){
+        /*
+        * @Description: 分页查询用户
+        * @Param: [model, pageCur]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return adminUserService.userInfo(model,pageCur);
     }
     @RequestMapping("/deleteuserManager")
     public String deleteuserManager(Integer id,Model model){
+        /*
+        * @Description: 根据id删除用户
+        * @Param: [id, model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return adminUserService.deleteuserManager(id,model);
     }
 

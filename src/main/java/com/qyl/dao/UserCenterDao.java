@@ -30,8 +30,15 @@ public interface UserCenterDao {
      * @param orderSn
      * @return
      */
-    Map<String,Object> orderDetail(Integer orderSn);
+    ArrayList<Map<String,Object>>orderDetail(Integer orderSn);
 
+
+    /**
+     * 按照id查出订单基础信息
+     * @param orderSn
+     * @return
+     */
+    Map<String,Object> selectOrderBaseById(Integer orderSn);
     /**
      * 删除一个关注商品
      * @param map

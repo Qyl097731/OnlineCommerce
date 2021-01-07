@@ -127,7 +127,7 @@
                                     共${info.pages}页&nbsp;&nbsp;
                                 </span>
                             </td>
-                            <td colspan="3">
+                            <td colspan="4">
                                 <span style="text-align: center">
                                 <a href="adminGoods/selectGoods?pageCur=${info.prePage}"
                                    contenteditable="${info.pageNum==1}"

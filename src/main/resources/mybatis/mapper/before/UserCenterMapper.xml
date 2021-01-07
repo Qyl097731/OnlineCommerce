@@ -16,7 +16,11 @@
             inner join tb_orderbase ob on detail.orderbasetable_id = ob.id
             where detail.goodstable_id = goods.id and orderbasetable_id = #{orderSn}
     </select>
+    <select id="selectOrderBaseById" resultType="map" parameterType="Integer">
+            select * from tb_orderbase where id = #{orderSn}
+    </select>
+
     <delete id="deleteAFocus" parameterType="map">
             delete from tb_focus  where busertable_id = #{uid} and goodstable_id = #{gid}
-        </delete>
+       </delete>
 </mapper>

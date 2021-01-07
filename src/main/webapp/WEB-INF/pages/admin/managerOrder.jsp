@@ -117,7 +117,7 @@
                             <tr>
                                 <td>${order.id}</td>
                                 <td>${order.amount}</td>
-                                <td>${order.status == 1?'未付款':'已付款'}</td>
+                                <td>${order.status == 0?'未付款':'已付款'}</td>
                                 <td>${order.orderdate}</td>
                                 <td>${order.userId}</td>
                                 <td>${order.bemail}</td>

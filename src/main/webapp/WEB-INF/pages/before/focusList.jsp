@@ -50,7 +50,7 @@
                         <td style="padding-top: 50px">${focus.gname}</td>
                         <td></td>
                         <td><img src="logos/${focus.gpicture}" width="100px" height="100px" alt="商品图片"/></td>
-                        <td style="padding-top: 50px"><a href="deleteAFocus?id=${focus.id}">删除</a></td>
+                        <td style="padding-top: 50px"><a href="deleteAFocus?id=${focus.gid}">删除</a></td>
                         <td style="padding-top: 50px"><a href="goodsDetail?id=${focus.gid}">详情</a></td>
                     </tr>
                 </c:forEach>

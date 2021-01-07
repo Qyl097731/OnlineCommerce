@@ -26,7 +26,7 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
     public ModelAndView resolveException(HttpServletRequest request,
                                          HttpServletResponse response,
                                          Object handler, Exception ex) {
-        Map<String,Object> model = new HashMap<>();
+        Map<String,Object> model = new HashMap<>(100);
         model.put("ex",ex);
         if(ex instanceof AdminLoginNoException){
             request.setAttribute("auser",new Auser());

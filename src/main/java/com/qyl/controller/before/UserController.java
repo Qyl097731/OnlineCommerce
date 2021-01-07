@@ -34,19 +34,47 @@ public class UserController {
 
     @RequestMapping("/toPageBeforeRegister")
     public String toPageBeforeRegister(Model model){
+        /*
+        * @Description: 注册界面跳转
+        * @Param: [model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return indexService.toRegister(model);
     }
     @RequestMapping("/register")
     public String register(@Valid @ModelAttribute("buser")Buser buser,BindingResult result,Model model, HttpSession session, String code){
+        /*
+        * @Description: 注册
+        * @Param: [buser, result, model, session, code]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return userService.register(buser,result,model,session,code);
     }
     @RequestMapping("/toLogin")
     public String toLogin(Model model){
+        /*
+        * @Description: 登录页面跳转
+        * @Param: [model]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return indexService.toLogin(model);
     }
 
     @RequestMapping("/login")
     public String login(@ModelAttribute("buser") Buser buser,Model model,HttpSession session,String code){
+        /*
+        * @Description: 登录
+        * @Param: [buser, model, session, code]
+        * @return: java.lang.String
+        * @Author: Mr.Qiu
+        * @Date: 2021/1/4
+        */
         return userService.login(buser,model,session,code);
     }
     @RequestMapping("/exit")

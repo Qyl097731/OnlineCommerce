@@ -40,19 +40,21 @@
                 </tr>
                 </thead>
                 <tbody id="showItem" class="showItem">
+                    <c:forEach items="${myOrderDetail}" var="order">
                     <tr>
-                        <td style="padding-top: 50px">${myOrderDetail.gid}</td>
-                        <td style="padding-top: 50px">${myOrderDetail.gname}</td>
+                        <td style="padding-top: 50px">${order.gid}</td>
+                        <td style="padding-top: 50px">${order.gname}</td>
                         <td></td>
-                        <td><img src="logos/${myOrderDetail.gpicture}" width="100px" height="100px" alt="公告图片"/></td>
-                        <td style="padding-top: 50px">${myOrderDetail.shoppingnum}</td>
-                        <c:if test="${myOrderDetail.status == 0}">
-                        <td style="padding-top: 50px"><a href="alipay?orderSn=${myOrderDetail.orderbasetable_id}" class="btn btn-success">立即付款</a></td>
+                        <td><img src="logos/${order.gpicture}" width="100px" height="100px" alt="商品图片"/></td>
+                        <td style="padding-top: 50px">${order.shoppingnum}</td>
+                        <c:if test="${order.status == 0}">
+                        <td style="padding-top: 50px"><a href="alipay?orderSn=${order.orderbasetable_id}" class="btn btn-success">立即付款</a></td>
                         </c:if>
-                        <c:if test="${myOrderDetail.status == 1}">
+                        <c:if test="${order.status == 1}">
                             <td style="padding-top: 50px"><a href="myOrder" class="btn btn-success">返回</a></td>
                         </c:if>
                     </tr>
+                    </c:forEach>
                 </tbody>
             </table>
     </div>
