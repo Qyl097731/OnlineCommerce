@@ -138,7 +138,7 @@
                                     共${info.pages}页&nbsp;&nbsp;
                                 </span>
                             </td>
-                            <td colspan="2">
+                            <td colspan="3">
                                 <span style="text-align: center">
                                 <a href="adminNotice/selectNotice?pageCur=${info.prePage}&act=deleteNotice"
                                    contenteditable="${info.pageNum==1}"
